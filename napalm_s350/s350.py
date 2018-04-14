@@ -244,6 +244,56 @@ class S350Driver(NetworkDriver):
             'vendor': u'Cisco',
         }
 
+
+    def get_interfaces(self):
+        """
+        get_interfaces() implementation for S350
+        """
+        interfaces = {}
+
+        show_status_output = self._send_command('show interfaces status | include (Up|Down)')
+        show_description_output = self._send_command('show interfaces description')
+        # Since the MAC address for all the local ports are equal, get the address
+        # from the first port and use it everywhere.
+        show_system_output = self._send_command('show lldp local GigabitEthernet1 | begin Device\ ID')
+
+        try:
+            mac = show_system_output.splitlines()[0].split(':', maxsplit=1)[1].strip()
+        except:
+            mac = '0'
+
+        for status_line in show_status_output.splitlines():
+            interface, _, _, speed, _, _, link_state, _, _ = status_line.split()
+
+            if speed == '--':
+                is_enabled = False
+                speed = 0
+            else:
+                is_enabled = True
+                speed = int(speed)
+
+            is_up = (link_state == 'Up')
+
+            for descr_line in show_description_output.splitlines():
+                description = 0
+                if descr_line.startswith(interface):
+                    description = ' '.join(descr_line.split()[1:])
+                    break
+
+            entry = {
+                'is_up': is_up,
+                'is_enabled': is_enabled,
+                'speed': speed,
+                'last_flapped': -1,
+                'description': description,
+                'mac_address': napalm.base.helpers.mac(mac)
+            }
+
+            interfaces[interface] = entry
+
+        return interfaces
+
+
     def get_interfaces_ip(self):
         """Returns all configured interface IP addresses."""
         interfaces = {}
@@ -326,6 +376,7 @@ class S350Driver(NetworkDriver):
                 elif line.startswith('System description'):
                     remote_system_description = self._get_lldp_line_value(line)
                 elif line.startswith('Capabilities'):
+                    # Only the enabled capabilities are displayed.
                     try:
                         # Split a line like 'Capabilities: Bridge, Router, Wlan-Access-Point'
                         capabilities = line.split(':')[1:][0].split(',')
