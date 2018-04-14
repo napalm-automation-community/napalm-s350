@@ -37,6 +37,7 @@ from napalm.base.exceptions import (
 )
 
 from napalm.base.utils import py23_compat
+import napalm.base.helpers
 
 
 class S350Driver(NetworkDriver):
@@ -133,6 +134,35 @@ class S350Driver(NetworkDriver):
 
         uptime_sec = (int(days) * 86400) + (int(hours) * 3600) + (int(minutes) * 60) + int(seconds)
         return uptime_sec
+
+
+    def get_arp_table(self):
+        """
+        Get the ARP table, the age isn't readily available so we leave that out for now.
+        """
+        arp_table = []
+
+        output = self._send_command('show arp | include (static|dynamic)')
+
+        for line in output.splitlines():
+            # A VLAN may not be set for the entry
+            if len(line.split()) == 4:
+                interface, ip, mac, _ = line.split()
+            elif len(line.split()) == 5:
+                _, interface, mac, _ = line.split()
+            else:
+                raise ValueError('Unexpected output: {}'.format(line.split()))
+
+            entry = {
+                'interface': interface,
+                'mac': napalm.base.helpers.mac(mac),
+                'ip': ip,
+                'age': 0,
+            }
+
+            arp_table.append(entry)
+
+        return arp_table
 
 
     def get_config(self, retrieve='all'):
