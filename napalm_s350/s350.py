@@ -192,11 +192,11 @@ class S350Driver(NetworkDriver):
         serial_number, fqdn, os_version, hostname, domain_name = ('Unknown',) * 5
 
         # Submit commands to the device.
-        show_ver = self._send_command('show version | include Version')
+        show_ver = self._send_command('show version')
         show_sys = self._send_command('show system')
         show_inv = self._send_command('show inventory')
-        show_hosts = self._send_command('show hosts | begin Default Domain Table')
-        show_int_st = self._send_command('show interface status | include gi')
+        show_hosts = self._send_command('show hosts')
+        show_int_st = self._send_command('show interface status')
 
         # os_version
         for line in show_ver.splitlines():
@@ -210,9 +210,11 @@ class S350Driver(NetworkDriver):
             if line.startswith('System Name:'):
                 _, hostname = line.split('System Name:')
                 hostname = hostname.strip()
+                continue
             elif line.startswith('System Description:'):
                 _, model = line.split('System Description:')
                 model = model.strip()
+                continue
             elif line.startswith('System Up Time (days,hour:min:sec):'):
                 _, uptime_str = line.split('System Up Time (days,hour:min:sec):')
                 uptime = self._parse_uptime(uptime_str)
@@ -224,14 +226,26 @@ class S350Driver(NetworkDriver):
                 break
 
         # fqdn
-        domain_line = show_hosts.splitlines()[4]
-        domainname = domain_line.split()[0]
+        domainname = napalm.base.helpers.textfsm_extractor(self, 'hosts',
+                                                           show_hosts)[0]
+        domainname = domainname['domain_name']
+        if domainname == 'Domain':
+            domainname = ''
         fqdn = '{0}.{1}'.format(hostname, domainname)
 
         # interface_list
         interfaces = []
+        show_int_st = show_int_st.strip()
+        # remove the header information
+        show_int_st = re.sub(
+            r"(^-.*$|^Port .*$|^Ch .*$)|^\s.*$|^.*Flow.*$", "", show_int_st,
+            flags=re.M
+        )
         for line in show_int_st.splitlines():
-            interfaces.append(py23_compat.text_type(line.split()[0]))
+            if not line:
+                continue
+            interface = line.split()[0]
+            interfaces.append(py23_compat.text_type(interface))
 
         return {
             'fqdn': py23_compat.text_type(fqdn),
