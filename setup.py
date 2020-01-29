@@ -11,7 +11,7 @@ with open("requirements.txt", "r") as fs:
 
 setup(
     name="napalm-s350",
-    version="0.1.0",
+    version="0.1.2",
     packages=find_packages(),
     author="Jasper Lievisse Adriaanse",
     author_email="j@jasper.la",
@@ -19,8 +19,9 @@ setup(
     classifiers=[
         'Topic :: Utilities',
          'Programming Language :: Python',
-         'Programming Language :: Python :: 2',
-         'Programming Language :: Python :: 2.7',
+         'Programming Language :: Python :: 3',
+         'Programming Language :: Python :: 3.6',
+         'Programming Language :: Python :: 3.7',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS',
     ],
