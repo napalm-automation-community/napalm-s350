@@ -5,7 +5,6 @@ python:
 install:
 - pip install -r requirements-dev.txt
 - pip install .
-- pip install -e git+https://github.com/napalm-automation/napalm.git@develop#egg=napalm
 - pip install coveralls
 
 deploy:
