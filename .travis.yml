@@ -17,7 +17,8 @@ deploy:
     branch: master
 
 script:
-- py.test --cov-report= test/
+  - coveralls
+  #- py.test --cov-report= test/
 
-after_success:
-- coveralls
+  #after_success:
+  #- coveralls
