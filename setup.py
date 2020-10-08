@@ -3,16 +3,15 @@
 import uuid
 
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
 
 __author__ = 'Jasper Lievisse Adriaanse <j@jasper.la>'
 
-install_reqs = parse_requirements('requirements.txt', session=uuid.uuid1())
-reqs = [str(ir.req) for ir in install_reqs]
+with open("requirements.txt", "r") as fs:
+    reqs = [r for r in fs.read().splitlines() if (len(r) > 0 and not r.startswith("#"))]
 
 setup(
     name="napalm-s350",
-    version="0.1.0",
+    version="0.1.2",
     packages=find_packages(),
     author="Jasper Lievisse Adriaanse",
     author_email="j@jasper.la",
@@ -20,8 +19,9 @@ setup(
     classifiers=[
         'Topic :: Utilities',
          'Programming Language :: Python',
-         'Programming Language :: Python :: 2',
-         'Programming Language :: Python :: 2.7',
+         'Programming Language :: Python :: 3',
+         'Programming Language :: Python :: 3.6',
+         'Programming Language :: Python :: 3.7',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS',
     ],
