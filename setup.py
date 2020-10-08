@@ -1,7 +1,5 @@
 """setup.py file."""
 
-import uuid
-
 from setuptools import setup, find_packages
 
 __author__ = 'Jasper Lievisse Adriaanse <j@jasper.la>'
@@ -9,23 +7,31 @@ __author__ = 'Jasper Lievisse Adriaanse <j@jasper.la>'
 with open("requirements.txt", "r") as fs:
     reqs = [r for r in fs.read().splitlines() if (len(r) > 0 and not r.startswith("#"))]
 
+with open("README.md", "r") as fs:
+    long_description = fs.read()
+
 setup(
     name="napalm-s350",
-    version="0.1.2",
-    packages=find_packages(),
-    author="Jasper Lievisse Adriaanse",
-    author_email="j@jasper.la",
-    description="Network Automation and Programmability Abstraction Layer with Multivendor support",
+    version="0.2.0",
+    packages=find_packages(exclude=("test*",)),
+    author="Jasper Lievisse Adriaanse, Petr Klíma",
+    author_email="j@jasper.la, qaxi@seznam.cz",
+    description="NAPALM driver for Cisco SMB switches (SF3xx, SF5xx, SG3xx, SG5xx)",
+    license="Apache 2.0",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     classifiers=[
         'Topic :: Utilities',
-         'Programming Language :: Python',
-         'Programming Language :: Python :: 3',
-         'Programming Language :: Python :: 3.6',
-         'Programming Language :: Python :: 3.7',
+        'License :: OSI Approved :: Apache Software License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS',
     ],
-    url="https://github.com/jasperla/napalm-s350",
+    url="https://github.com/napalm-automation-community/napalm-s350",
     include_package_data=True,
     install_requires=reqs,
 )
+
