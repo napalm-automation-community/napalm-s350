@@ -3,8 +3,9 @@
  NAPALM driver for Cisco SMB switches (SF3xx, SF5xx, SG3xx, SG5xx).
 
 ## Status
-Main: [![Build Status](https://travis-ci.com/napalm-automation-community/napalm-s350.svg?branch=master)](https://travis-ci.com/napalm-automation-community/napalm-s350)
 Develop: [![Build Status](https://travis-ci.com/napalm-automation-community/napalm-s350.svg?branch=develop)](https://travis-ci.com/napalm-automation-community/napalm-s350)
+Main: [![Build Status](https://travis-ci.com/napalm-automation-community/napalm-s350.svg?branch=master)](https://travis-ci.com/napalm-automation-community/napalm-s350)
+![Upload to PyPi.org](https://github.com/napalm-automation-community/napalm-s350/workflows/Upload%20Python%20Package%20to%20PyPi.org/badge.svg?branch=master&event=release)
 
 ## Supported devices
 
