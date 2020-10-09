@@ -4,9 +4,6 @@
 name: Testing Upload Python Package to TEST.PyPi.org
 
 on:
-#  release:
-#    types: [created]
-
   push:
     branches:
       - develop
@@ -29,13 +26,16 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install setuptools wheel twine
-    - name: Build and publish
+    - name: Build
+      run: |
+        python setup.py sdist bdist_wheel
+    - name: Check
+      run: |
+        twine check dist/*
+    - name: Publish
       env:
         TWINE_USERNAME:   ${{ secrets.TWINE_TEST_USERNAME }}
         TWINE_PASSWORD:   ${{ secrets.TWINE_TEST_PASSWORD }}
         TWINE_REPOSITORY: ${{ secrets.TWINE_TEST_REPOSITORY }}
       run: |
-        python setup.py sdist bdist_wheel
-        twine check dist/*
         twine upload --verbose --non-interactive --disable-progress-bar --skip-existing dist/*
-
