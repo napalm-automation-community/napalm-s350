@@ -1,15 +1,11 @@
 # This workflows will upload a Python Package using Twine when a release is created
 # For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
 
-name: Testing Upload Python Package to TEST.PyPi.org
+name: Upload Python Package to PyPi.org
 
 on:
-  push:
-    branches:
-      - develop
-  pull_request:
-    branches:
-      - develop
+  release:
+    types: [created]
 
 jobs:
   deploy:
@@ -34,8 +30,8 @@ jobs:
         twine check dist/*
     - name: Publish
       env:
-        TWINE_USERNAME:   ${{ secrets.TWINE_TEST_USERNAME }}
-        TWINE_PASSWORD:   ${{ secrets.TWINE_TEST_PASSWORD }}
-        TWINE_REPOSITORY: ${{ secrets.TWINE_TEST_REPOSITORY }}
+        TWINE_USERNAME:   ${{ secrets.TWINE_USERNAME }}
+        TWINE_PASSWORD:   ${{ secrets.TWINE_PASSWORD }}
+        TWINE_REPOSITORY: ${{ secrets.TWINE_REPOSITORY }}
       run: |
-        twine upload --verbose --non-interactive --disable-progress-bar --skip-existing dist/*
+        twine upload --verbose --non-interactive --disable-progress-bar dist/*
