@@ -244,15 +244,15 @@ class S350Driver(NetworkDriver):
             if not line:
                 continue
             interface = line.split()[0]
-            interfaces.append(py23_compat.text_type(interface))
+            interfaces.append(str(interface))
 
         return {
-            'fqdn': py23_compat.text_type(fqdn),
-            'hostname': py23_compat.text_type(hostname),
+            'fqdn':str(fqdn),
+            'hostname': str(hostname),
             'interface_list': interfaces,
-            'model': py23_compat.text_type(model),
-            'os_version': py23_compat.text_type(os_version),
-            'serial_number': py23_compat.text_type(serial_number),
+            'model': str(model),
+            'os_version': str(os_version),
+            'serial_number': str(serial_number),
             'uptime': uptime,
             'vendor': u'Cisco',
         }
