@@ -36,6 +36,7 @@ from napalm.base.exceptions import (
     CommandErrorException,
 )
 
+from napalm.base.utils import py23_compat
 import napalm.base.helpers
 
 
