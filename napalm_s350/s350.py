@@ -198,11 +198,19 @@ class S350Driver(NetworkDriver):
         show_int_st = self._send_command('show interface status')
 
         # os_version
-        for line in show_ver.splitlines():
-            # First version line is the active version
-            if 'Version' in line:
-                _, os_version = line.split('Version: ')
-                break
+        # detect os ver > 2
+        if 'Active-image' in show_ver:
+            for line in show_ver.splitlines():
+                # First version line is the active version
+                if 'Version' in line:
+                    _, os_version = line.split('Version: ')
+                    break
+        else:
+            for line in show_ver.splitlines():
+                if 'SW version' in line:
+                    _, ver = line.split('    ')
+                    os_version, _ = ver.split(' (')
+                    break
 
         # hostname, uptime
         for line in show_sys.splitlines():
