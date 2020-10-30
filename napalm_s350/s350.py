@@ -324,10 +324,13 @@ class S350Driver(NetworkDriver):
     def get_interfaces_ip(self):
         """Returns all configured interface IP addresses."""
         interfaces = {}
-        show_ip_int = self._send_command('show ip int | include (UP|DOWN)')
+        valid_interfaces = []
+        show_ip_int = self._send_command('show ip int')
 
         # Limit to valid interfaces (i.e. ignore vlan 1)
-        valid_interfaces = [i for i in show_ip_int.splitlines() if i.split()[-1] == 'Valid']
+        for line in show_ip_int.splitlines():
+            if ('UP' in line or 'DOWN' in line) and line.split()[-1] == 'Valid':
+                valid_interfaces.append(line)
 
         for interface in valid_interfaces:
             network, name = interface.split()[:2]
