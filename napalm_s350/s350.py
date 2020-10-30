@@ -141,14 +141,17 @@ class S350Driver(NetworkDriver):
         """
         arp_table = []
 
-        output = self._send_command('show arp | include (static|dynamic)')
+        output = self._send_command('show arp')
 
         for line in output.splitlines():
             # A VLAN may not be set for the entry
+            if 'vlan' not in line:
+                continue
             if len(line.split()) == 4:
                 interface, ip, mac, _ = line.split()
             elif len(line.split()) == 5:
-                _, interface, mac, _ = line.split()
+                if1, if2, ip, mac, _ = line.split()
+                interface = "{} {}".format(if1, if2)
             elif len(line.split()) == 6:
                 _, _, interface, ip, mac, _ = line.split()
             else:
