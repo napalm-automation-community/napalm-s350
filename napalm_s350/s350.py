@@ -149,6 +149,8 @@ class S350Driver(NetworkDriver):
                 interface, ip, mac, _ = line.split()
             elif len(line.split()) == 5:
                 _, interface, mac, _ = line.split()
+            elif len(line.split()) == 6:
+                _, _, interface, ip, mac, _ = line.split()
             else:
                 raise ValueError('Unexpected output: {}'.format(line.split()))
 
