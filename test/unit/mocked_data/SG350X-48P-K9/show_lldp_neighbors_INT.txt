@@ -1,0 +1,19 @@
+
+Device ID: sw2
+Port ID: te1/0/4
+Capabilities: Bridge, Router
+System Name: sw2
+System description: 
+Port description: 
+Management Address: 198.51.100.1
+Management Address: fe80::6eb:40ff:fed9:ba7b
+Time To Live: 100
+
+
+802.1 PVID: 1
+802.1 PPVID: 
+802.1 VLAN:
+802.1 Protocol: 
+
+
+

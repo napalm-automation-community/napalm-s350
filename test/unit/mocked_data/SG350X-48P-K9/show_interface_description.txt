@@ -1,0 +1,65 @@
+Port      Description
+-------   -----------
+gi1/0/1   3B10
+gi1/0/2   3A9
+gi1/0/3   3E2
+gi1/0/4   3F1
+gi1/0/5   2A2
+gi1/0/6   Lobby
+gi1/0/7   
+gi1/0/8   
+gi1/0/9   
+gi1/0/10  
+gi1/0/11  
+gi1/0/12  
+gi1/0/13  
+gi1/0/14  
+gi1/0/15  Dk
+gi1/0/16  Dc
+gi1/0/17  Dct
+gi1/0/18  DPC
+gi1/0/19  Dr
+gi1/0/20  Dr
+gi1/0/21  Dr
+gi1/0/22  
+gi1/0/23  
+gi1/0/24  
+gi1/0/25  2B2
+gi1/0/26  2E2
+gi1/0/27  2F2
+gi1/0/28  1A2
+gi1/0/29  1B2
+gi1/0/30  
+gi1/0/31  
+gi1/0/32  
+gi1/0/33  
+gi1/0/34  
+gi1/0/35  MV
+gi1/0/36  MV
+gi1/0/37  MP
+gi1/0/38  MV + P
+gi1/0/39  MV
+gi1/0/40  
+gi1/0/41  
+gi1/0/42  
+gi1/0/43  
+gi1/0/44  
+gi1/0/45  S2
+gi1/0/46  Ce
+gi1/0/47  
+gi1/0/48  
+te1/0/1   T1
+te1/0/2   
+te1/0/3   T2
+te1/0/4   T3
+
+Ch        Description
+-------   -----------
+Po1       
+Po2       
+Po3       
+Po4       
+Po5       
+Po6       
+Po7       
+Po8       

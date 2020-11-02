@@ -1,0 +1,9 @@
+Maximum Parallel Paths: 1 (1 after reset)
+IP Forwarding: disabled
+Codes: > - best, C - connected, S - static
+
+
+S   198.51.100.1/8 [1/4] via 198.51.100.2, 00:37:12, vlan 852                     
+C   198.51.100.0/16 is directly connected, vlan 852                           
+C   198.51.100.2/24 is directly connected, vlan 1                           
+
