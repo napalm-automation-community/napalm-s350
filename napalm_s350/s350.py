@@ -352,7 +352,8 @@ class S350Driver(NetworkDriver):
     def get_lldp_neighbors(self):
         """get_lldp_neighbors implementation for s350"""
         neighbors = {}
-        output = self._send_command('show lldp neighbors | begin \ \ Port')
+        #output = self._send_command('show lldp neighbors | begin \ \ Port')
+        output = self._send_command('show lldp neighbors')
 
         for line in output.splitlines()[2:]:
             line_elems = line.split()
@@ -443,7 +444,7 @@ class S350Driver(NetworkDriver):
     def get_ntp_servers(self):
         """get_ntp_servers implementation for S350"""
         ntp_servers = {}
-        output = self._send_command('show sntp status | include Server')
+        output = self._send_command('show sntp status')
 
         for line in output.splitlines():
             ntp_servers[line.split()[2]] = {}
