@@ -282,18 +282,27 @@ class S350Driver(NetworkDriver):
 
         show_status_output = self._send_command('show interfaces status')
         show_description_output = self._send_command('show interfaces description')
-        # Since the MAC address for all the local ports are equal, get the address
-        # from the first port and use it everywhere.
-        show_system_output = self._send_command('show lldp local GigabitEthernet1')
 
-        try:
-            mac = show_system_output.splitlines()[0].split(':', maxsplit=1)[1].strip()
-        except:
-            mac = '0'
+        # by documentation SG350
+        show_jumbo_frame = self._send_command('show ports jumbo-frame')
+        match = re.search(r'Jumbo frames are enabled', show_jumbo_frame, re.M)
+        if match:
+            mtu = 9000
+        else:
+            mtu = 1518
+
+        mac = '0'
 
         for status_line in show_status_output.splitlines():
             if 'Up' in status_line or 'Down' in status_line:
                 interface, _, _, speed, _, _, link_state, _, _ = status_line.split()
+
+                # Since the MAC address for all the local ports are equal, get the address
+                # from the first port and use it everywhere.
+                if mac == '0':
+                    show_system_output = self._send_command('show lldp local ' + interface )
+
+                    mac = show_system_output.splitlines()[0].split(':', maxsplit=1)[1].strip()
 
                 if speed == '--':
                     is_enabled = False
@@ -310,11 +319,13 @@ class S350Driver(NetworkDriver):
                         description = ' '.join(descr_line.split()[1:])
                         break
 
+                # last_flapped can not be get - setting to default
                 entry = {
                     'is_up': is_up,
                     'is_enabled': is_enabled,
                     'speed': speed,
-                    'last_flapped': -1,
+                    'mtu': mtu,
+                    'last_flapped': -1.0,
                     'description': description,
                     'mac_address': napalm.base.helpers.mac(mac)
                 }
