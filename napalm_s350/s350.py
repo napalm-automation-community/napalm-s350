@@ -482,8 +482,10 @@ class S350Driver(NetworkDriver):
         ntp_servers = {}
         output = self._send_command('show sntp status')
 
-        for line in output.splitlines():
-            ntp_servers[line.split()[2]] = {}
+        servers = re.findall(r'^Server\s*:\s*(\S+)\s*.*$', output, re.M)
+
+        for server in servers:
+            ntp_servers[server] = {}
 
         return ntp_servers
 
