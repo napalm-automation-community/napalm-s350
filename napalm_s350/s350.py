@@ -141,14 +141,19 @@ class S350Driver(NetworkDriver):
         """
         arp_table = []
 
-        output = self._send_command('show arp | include (static|dynamic)')
+        output = self._send_command('show arp')
 
         for line in output.splitlines():
             # A VLAN may not be set for the entry
+            if 'vlan' not in line:
+                continue
             if len(line.split()) == 4:
                 interface, ip, mac, _ = line.split()
             elif len(line.split()) == 5:
-                _, interface, mac, _ = line.split()
+                if1, if2, ip, mac, _ = line.split()
+                interface = "{} {}".format(if1, if2)
+            elif len(line.split()) == 6:
+                _, _, interface, ip, mac, _ = line.split()
             else:
                 raise ValueError('Unexpected output: {}'.format(line.split()))
 
@@ -198,11 +203,19 @@ class S350Driver(NetworkDriver):
         show_int_st = self._send_command('show interface status')
 
         # os_version
-        for line in show_ver.splitlines():
-            # First version line is the active version
-            if 'Version' in line:
-                _, os_version = line.split('Version: ')
-                break
+        # detect os ver > 2
+        if 'Active-image' in show_ver:
+            for line in show_ver.splitlines():
+                # First version line is the active version
+                if 'Version' in line:
+                    _, os_version = line.split('Version: ')
+                    break
+        else:
+            for line in show_ver.splitlines():
+                if 'SW version' in line:
+                    _, ver = line.split('    ')
+                    os_version, _ = ver.split(' (')
+                    break
 
         # hostname, uptime
         for line in show_sys.splitlines():
@@ -264,11 +277,11 @@ class S350Driver(NetworkDriver):
         """
         interfaces = {}
 
-        show_status_output = self._send_command('show interfaces status | include (Up|Down)')
+        show_status_output = self._send_command('show interfaces status')
         show_description_output = self._send_command('show interfaces description')
         # Since the MAC address for all the local ports are equal, get the address
         # from the first port and use it everywhere.
-        show_system_output = self._send_command('show lldp local GigabitEthernet1 | begin Device\ ID')
+        show_system_output = self._send_command('show lldp local GigabitEthernet1')
 
         try:
             mac = show_system_output.splitlines()[0].split(':', maxsplit=1)[1].strip()
@@ -276,33 +289,34 @@ class S350Driver(NetworkDriver):
             mac = '0'
 
         for status_line in show_status_output.splitlines():
-            interface, _, _, speed, _, _, link_state, _, _ = status_line.split()
+            if 'Up' in status_line or 'Down' in status_line:
+                interface, _, _, speed, _, _, link_state, _, _ = status_line.split()
 
-            if speed == '--':
-                is_enabled = False
-                speed = 0
-            else:
-                is_enabled = True
-                speed = int(speed)
+                if speed == '--':
+                    is_enabled = False
+                    speed = 0
+                else:
+                    is_enabled = True
+                    speed = int(speed)
 
-            is_up = (link_state == 'Up')
+                is_up = (link_state == 'Up')
 
-            for descr_line in show_description_output.splitlines():
-                description = 0
-                if descr_line.startswith(interface):
-                    description = ' '.join(descr_line.split()[1:])
-                    break
+                for descr_line in show_description_output.splitlines():
+                    description = 0
+                    if descr_line.startswith(interface):
+                        description = ' '.join(descr_line.split()[1:])
+                        break
 
-            entry = {
-                'is_up': is_up,
-                'is_enabled': is_enabled,
-                'speed': speed,
-                'last_flapped': -1,
-                'description': description,
-                'mac_address': napalm.base.helpers.mac(mac)
-            }
+                entry = {
+                    'is_up': is_up,
+                    'is_enabled': is_enabled,
+                    'speed': speed,
+                    'last_flapped': -1,
+                    'description': description,
+                    'mac_address': napalm.base.helpers.mac(mac)
+                }
 
-            interfaces[interface] = entry
+                interfaces[interface] = entry
 
         return interfaces
 
@@ -310,10 +324,13 @@ class S350Driver(NetworkDriver):
     def get_interfaces_ip(self):
         """Returns all configured interface IP addresses."""
         interfaces = {}
-        show_ip_int = self._send_command('show ip int | include (UP|DOWN)')
+        valid_interfaces = []
+        show_ip_int = self._send_command('show ip int')
 
         # Limit to valid interfaces (i.e. ignore vlan 1)
-        valid_interfaces = [i for i in show_ip_int.splitlines() if i.split()[-1] == 'Valid']
+        for line in show_ip_int.splitlines():
+            if ('UP' in line or 'DOWN' in line) and line.split()[-1] == 'Valid':
+                valid_interfaces.append(line)
 
         for interface in valid_interfaces:
             network, name = interface.split()[:2]
@@ -335,19 +352,21 @@ class S350Driver(NetworkDriver):
     def get_lldp_neighbors(self):
         """get_lldp_neighbors implementation for s350"""
         neighbors = {}
-        output = self._send_command('show lldp neighbors | begin \ \ Port')
+        output = self._send_command('show lldp neighbors')
 
-        for line in output.splitlines()[2:]:
+        """Output can contain line breaks in some columns this need to be filtered"""
+
+        for line in output.splitlines()[7:]:
             line_elems = line.split()
-            local_port = line_elems[0]
-            remote_port = line_elems[2]
-            remote_name = line_elems[3]
+            if len(line_elems) > 1:
+                local_port = line_elems[0]
+                remote_port = line_elems[2]
+                remote_name = line_elems[3]
 
-            neighbors[local_port] = {
-                'hostname': remote_name,
-                'port': remote_port,
-            }
-
+                neighbors[local_port] = {
+                    'hostname': remote_name,
+                    'port': remote_port,
+                }
         return neighbors
 
     def _get_lldp_line_value(self, line):
@@ -426,10 +445,11 @@ class S350Driver(NetworkDriver):
     def get_ntp_servers(self):
         """get_ntp_servers implementation for S350"""
         ntp_servers = {}
-        output = self._send_command('show sntp status | include Server')
+        output = self._send_command('show sntp status')
 
         for line in output.splitlines():
-            ntp_servers[line.split()[2]] = {}
+            if "Server" in line:
+                ntp_servers[line.split()[2]] = {}
 
         return ntp_servers
 
