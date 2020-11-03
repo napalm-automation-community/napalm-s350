@@ -29,11 +29,8 @@ import socket
 from netmiko import ConnectHandler
 from napalm.base import NetworkDriver
 from napalm.base.exceptions import (
-    ConnectionException,
-    SessionLockedException,
-    MergeConfigException,
-    ReplaceConfigException,
     CommandErrorException,
+    ConnectionClosedException,
 )
 
 import napalm.base.helpers
@@ -92,7 +89,6 @@ class S350Driver(NetworkDriver):
                                      **self.netmiko_optional_args)
         self.device.enable()
 
-
     def _discover_file_system(self):
         try:
             return self.device._autodetect_fs()
@@ -100,7 +96,6 @@ class S350Driver(NetworkDriver):
             msg = "Netmiko _autodetect_fs failed (to work around specify " \
                   "dest_file_system in optional_args)."
             raise CommandErrorException(msg)
-
 
     def close(self):
         """Close the connection to the device."""
@@ -123,7 +118,6 @@ class S350Driver(NetworkDriver):
         except (socket.error, EOFError) as e:
             raise ConnectionClosedException(str(e))
 
-
     def _parse_uptime(self, uptime_str):
         """Parse an uptime string into number of seconds"""
         uptime_str = uptime_str.strip()
@@ -134,8 +128,7 @@ class S350Driver(NetworkDriver):
         uptime_sec = (int(days) * 86400) + (int(hours) * 3600) + (int(minutes) * 60) + int(seconds)
         return uptime_sec
 
-
-    def get_arp_table(self, vrf = None):
+    def get_arp_table(self, vrf=None):
         """
         Get the ARP table, the age isn't readily available so we leave that out for now.
 
@@ -170,7 +163,6 @@ class S350Driver(NetworkDriver):
             arp_table.append(entry)
 
         return arp_table
-
 
     def get_config(self, retrieve='all'):
         """
@@ -263,7 +255,7 @@ class S350Driver(NetworkDriver):
             interfaces.append(str(interface))
 
         return {
-            'fqdn':str(fqdn),
+            'fqdn': str(fqdn),
             'hostname': str(hostname),
             'interface_list': interfaces,
             'model': str(model),
@@ -272,7 +264,6 @@ class S350Driver(NetworkDriver):
             'uptime': uptime,
             'vendor': u'Cisco',
         }
-
 
     def get_interfaces(self):
         """
@@ -300,7 +291,7 @@ class S350Driver(NetworkDriver):
                 # Since the MAC address for all the local ports are equal, get the address
                 # from the first port and use it everywhere.
                 if mac == '0':
-                    show_system_output = self._send_command('show lldp local ' + interface )
+                    show_system_output = self._send_command('show lldp local ' + interface)
 
                     mac = show_system_output.splitlines()[0].split(':', maxsplit=1)[1].strip()
 
@@ -334,7 +325,6 @@ class S350Driver(NetworkDriver):
 
         return interfaces
 
-
     def get_interfaces_ip(self):
         """Returns all configured interface IP addresses."""
         interfaces = {}
@@ -366,12 +356,10 @@ class S350Driver(NetworkDriver):
     def get_lldp_neighbors(self):
         """get_lldp_neighbors implementation for s350"""
         neighbors = {}
-        #output = self._send_command('show lldp neighbors | begin \ \ Port')
         output = self._send_command('show lldp neighbors')
 
-        header = True # cycle trought header
-        # keep previous context - multiline syname
-        local_port = ''
+        header = True    # cycle trought header
+        local_port = ''  # keep previous context - multiline syname
         remote_port = ''
         remote_name = ''
         for line in output.splitlines():
@@ -398,9 +386,9 @@ class S350Driver(NetworkDriver):
                 'hostname': remote_name,
                 'port': remote_port,
             }
-            neighbor_list= [ neighbor, ]
+            neighbor_list = [neighbor, ]
             neighbors[local_port] = neighbor_list
-            
+
         return neighbors
 
     def _get_lldp_line_value(self, line):
@@ -409,11 +397,10 @@ class S350Driver(NetworkDriver):
         """
         try:
             value = line.split(':')[1:][0].strip()
-        except:
+        except KeyError:
             value = u'N/A'
 
         return value
-
 
     def get_lldp_neighbors_detail(self):
         """
@@ -446,7 +433,7 @@ class S350Driver(NetworkDriver):
                     try:
                         # Split a line like 'Capabilities: Bridge, Router, Wlan-Access-Point'
                         capabilities = line.split(':')[1:][0].split(',')
-                    except:
+                    except KeyError:
                         capabilities = []
 
                     caps = []
@@ -471,11 +458,9 @@ class S350Driver(NetworkDriver):
                 'remote_system_enable_capab': caps,
             }
 
-            details[local_port] = [ entry, ]
-
+            details[local_port] = [entry, ]
 
         return details
-
 
     def get_ntp_servers(self):
         """get_ntp_servers implementation for S350"""
@@ -506,7 +491,6 @@ class S350Driver(NetworkDriver):
 
         # If we made it here, assume the worst.
         return {'is_alive': False}
-
 
     @property
     def dest_file_system(self):
