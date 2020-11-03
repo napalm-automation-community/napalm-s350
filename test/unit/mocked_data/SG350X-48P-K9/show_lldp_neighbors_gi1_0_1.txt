@@ -1,0 +1,51 @@
+
+Device ID: 11:ac:00:66:ff:aa
+Port ID: 11:ac:00:66:ff:aa
+Capabilities: Bridge, Wlan-Access-Point
+System Name: SBC
+System description: ABC-SC-BM, 1.2.34.11111
+Port description: br0
+Management Address: 192.168.1.121
+Management Address: fe80::76ac:b9ff:fe66:ffaa
+Time To Live: 90
+
+
+802.3 MAC/PHY Configuration/Status
+Auto-negotiation support:  Not supported
+Auto-negotiation status:  Disabled
+Auto-negotiation Advertised Capabilities: 
+Operational MAU type: Unknown
+
+802.3 Link Aggregation
+Aggregation capability: Capable of being aggregated
+Aggregation status: Currently not in aggregation
+
+
+802.3 EEE:
+
+   Remote Tx:         17 uSec
+   Remote Rx:         17 uSec
+   Remote Tx Echo:    17 uSec
+   Remote Rx Echo:    17 uSec
+
+
+802.1 PVID: None
+802.1 PPVID: 
+802.1 VLAN:
+802.1 Protocol: 
+
+
+LLDP-MED capabilities: Capabilities, Network Policy, Location, POE-PSE, POE-PD, Inventory
+LLDP-MED Device Type: Network Connectivity
+
+Hardware revision: 
+Firmware revision: 
+Software revision: 1.2.345
+Serial number: 
+Manufacturer name: 
+Model name: 
+Asset ID: 
+
+
+
+

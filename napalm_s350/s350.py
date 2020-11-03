@@ -428,7 +428,7 @@ class S350Driver(NetworkDriver):
                 remote_system_name, remote_system_description, \
                 remote_system_capab, remote_system_enable_capab = (u'N/A',) * 7
 
-            output = self._send_command('show lldp neighbor {}'.format(local_port))
+            output = self._send_command('show lldp neighbors {}'.format(local_port))
 
             for line in output.splitlines():
                 if line.startswith('Port ID'):
@@ -459,6 +459,7 @@ class S350Driver(NetworkDriver):
                         else:
                             caps.append(cap[0])
 
+                    print(caps)
             entry = {
                 'parent_interface': u'N/A',
                 'remote_port': remote_port_id,
@@ -466,11 +467,11 @@ class S350Driver(NetworkDriver):
                 'remote_chassis_id': remote_chassis_id,
                 'remote_system_name': remote_system_name,
                 'remote_system_description': remote_system_description,
-                'remote_system_capab': u', '.join(caps),
-                'remote_system_enable_capab': u', '.join(caps),
+                'remote_system_capab': caps,
+                'remote_system_enable_capab': caps,
             }
 
-            details[local_port] = entry
+            details[local_port] = [ entry, ]
 
 
         return details

@@ -6,7 +6,5 @@ TP - Two Ports MAC Relay; S - S-VLAN; C - C-VLAN; O - Other
 
   Port        Device ID          Port ID         System Name    Capabilities  TTL  
 --------- ----------------- ----------------- ----------------- ------------ ----- 
-gi1/0/37  b0:b8:67:c2:32:aa b0:b8:67:c2:32:aa AM                     W        110  
-te1/0/3   00:8e:73:24:5d:e2       gi28        sw1                   B, R      116  
-te1/0/4     sw2                  te1/0/4        sw2                 B, R      100  
+gi1/0/1   74:ac:aa:ff:1a:5f 74:ac:aa:ff:1a:5f       UBNT            B, W      90   
 
