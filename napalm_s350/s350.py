@@ -352,19 +352,21 @@ class S350Driver(NetworkDriver):
     def get_lldp_neighbors(self):
         """get_lldp_neighbors implementation for s350"""
         neighbors = {}
-        output = self._send_command('show lldp neighbors | begin \ \ Port')
+        output = self._send_command('show lldp neighbors')
 
-        for line in output.splitlines()[2:]:
+        """Output can contain line breaks in some columns this need to be filtered"""
+
+        for line in output.splitlines()[7:]:
             line_elems = line.split()
-            local_port = line_elems[0]
-            remote_port = line_elems[2]
-            remote_name = line_elems[3]
+            if len(line_elems) > 1:
+                local_port = line_elems[0]
+                remote_port = line_elems[2]
+                remote_name = line_elems[3]
 
-            neighbors[local_port] = {
-                'hostname': remote_name,
-                'port': remote_port,
-            }
-
+                neighbors[local_port] = {
+                    'hostname': remote_name,
+                    'port': remote_port,
+                }
         return neighbors
 
     def _get_lldp_line_value(self, line):
