@@ -40,4 +40,4 @@ jobs:
         TWINE_PASSWORD:   ${{ secrets.TWINE_TEST_PASSWORD }}
         TWINE_REPOSITORY: ${{ secrets.TWINE_TEST_REPOSITORY }}
       run: |
-        twine upload --verbose --non-interactive --disable-progress-bar --skip-existing dist/*
+        twine upload --repository testpypi --verbose --non-interactive --disable-progress-bar --skip-existing dist/*
