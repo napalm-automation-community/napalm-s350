@@ -370,6 +370,10 @@ class S350Driver(NetworkDriver):
         output = self._send_command('show lldp neighbors')
 
         header = True # cycle trought header
+        # keep previous context - multiline syname
+        local_port = ''
+        remote_port = ''
+        remote_name = ''
         for line in output.splitlines():
             if header:
                 # last line of header
@@ -379,9 +383,16 @@ class S350Driver(NetworkDriver):
                 continue
 
             line_elems = line.split()
-            local_port = line_elems[0]
-            remote_port = line_elems[2]
-            remote_name = line_elems[3]
+
+            # long system name owerflow to the other line
+            if len(line_elems) == 1:
+                # complete remote name
+                remote_name = remote_name + line_elems[0]
+                # then reuse old values na rewrite previous entry
+            else:
+                local_port = line_elems[0]
+                remote_port = line_elems[2]
+                remote_name = line_elems[3]
 
             neighbor = {
                 'hostname': remote_name,
