@@ -1,0 +1,470 @@
+{ 
+  "gi1/0/1" : { 
+      "description" : "3B10",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/2" : { 
+      "description" : "3A9",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/3" : { 
+      "description" : "3E2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/4" : { 
+      "description" : "3F1",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/5" : { 
+      "description" : "2A2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/6" : { 
+      "description" : "Lobby",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/7" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/8" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/9" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/10" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/11" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/12" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/13" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/14" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/15" : { 
+      "description" : "Dk",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/16" : { 
+      "description" : "Dc",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 100
+    },
+  "gi1/0/17" : { 
+      "description" : "Dct",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/18" : { 
+      "description" : "DPC",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/19" : { 
+      "description" : "Dr",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/20" : { 
+      "description" : "Dr",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/21" : { 
+      "description" : "Dr",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/22" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/23" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/24" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/25" : { 
+      "description" : "2B2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/26" : { 
+      "description" : "2E2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/27" : { 
+      "description" : "2F2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/28" : { 
+      "description" : "1A2",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/29" : { 
+      "description" : "1B2",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/30" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/31" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/32" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/33" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/34" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/35" : { 
+      "description" : "MV",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/36" : { 
+      "description" : "MV",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 100
+    },
+  "gi1/0/37" : { 
+      "description" : "MP",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/38" : { 
+      "description" : "MV + P",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/39" : { 
+      "description" : "MV",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 100
+    },
+  "gi1/0/40" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/41" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/42" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/43" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/44" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/45" : { 
+      "description" : "S2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "gi1/0/46" : { 
+      "description" : "Ce",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 100
+    },
+  "gi1/0/47" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "gi1/0/48" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "te1/0/1" : { 
+      "description" : "T1",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "te1/0/2" : { 
+      "description" : "",
+      "is_enabled" : false,
+      "is_up" : false,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 0
+    },
+  "te1/0/3" : { 
+      "description" : "T2",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 1000
+    },
+  "te1/0/4" : { 
+      "description" : "T3",
+      "is_enabled" : true,
+      "is_up" : true,
+      "last_flapped" : -1.0,
+      "mac_address" : "04:EB:40:E3:91:7F",
+      "mtu" : 9000,
+      "speed" : 10000
+    }
+}
