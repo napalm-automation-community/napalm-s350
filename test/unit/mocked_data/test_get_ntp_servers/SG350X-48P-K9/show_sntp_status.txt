@@ -1,0 +1,30 @@
+
+Clock is synchronized, stratum 3, reference is 198.51.100.1, unicast
+
+Unicast servers:
+
+Server            : 198.51.100.2
+  Source          : Static
+  Stratum         : 255
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : 198.51.100.1
+  Source          : Static
+  Stratum         : 3
+  Status          : up
+  Last Response   : 08:53:15.0 web Oct 16 2020
+  Offset          : 1404.8796860 mSec
+  Delay           : 0 mSec
+
+
+
+Anycast server:
+
+
+
+Broadcast:
+
+

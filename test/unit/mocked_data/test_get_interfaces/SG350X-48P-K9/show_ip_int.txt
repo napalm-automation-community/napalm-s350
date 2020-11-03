@@ -1,0 +1,8 @@
+
+
+    IP Address        I/F    I/F Status  Type   Directed  Prec Redirect Status 
+                             admin/oper         Broadcast                      
+------------------ --------- ---------- ------- --------- ---- -------- ------ 
+198.51.100.1/16    vlan 852  UP/UP      Static  disable   No   enable   Valid  
+198.51.100.2/24    vlan 1    UP/UP      Static  disable   No   enable   Valid  
+
