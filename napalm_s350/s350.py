@@ -369,17 +369,27 @@ class S350Driver(NetworkDriver):
         #output = self._send_command('show lldp neighbors | begin \ \ Port')
         output = self._send_command('show lldp neighbors')
 
-        for line in output.splitlines()[2:]:
+        header = True # cycle trought header
+        for line in output.splitlines():
+            if header:
+                # last line of header
+                match = re.match(r'^--------- -+ .*$', line)
+                if match:
+                    header = False
+                continue
+
             line_elems = line.split()
             local_port = line_elems[0]
             remote_port = line_elems[2]
             remote_name = line_elems[3]
 
-            neighbors[local_port] = {
+            neighbor = {
                 'hostname': remote_name,
                 'port': remote_port,
             }
-
+            neighbor_list= [ neighbor, ]
+            neighbors[local_port] = neighbor_list
+            
         return neighbors
 
     def _get_lldp_line_value(self, line):
