@@ -445,10 +445,11 @@ class S350Driver(NetworkDriver):
     def get_ntp_servers(self):
         """get_ntp_servers implementation for S350"""
         ntp_servers = {}
-        output = self._send_command('show sntp status | include Server')
+        output = self._send_command('show sntp status')
 
         for line in output.splitlines():
-            ntp_servers[line.split()[2]] = {}
+            if "Server" in line:
+                ntp_servers[line.split()[2]] = {}
 
         return ntp_servers
 
