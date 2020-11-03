@@ -135,10 +135,13 @@ class S350Driver(NetworkDriver):
         return uptime_sec
 
 
-    def get_arp_table(self):
+    def get_arp_table(self, vrf = None):
         """
         Get the ARP table, the age isn't readily available so we leave that out for now.
+
+        vrf is needed for test - no support on s350
         """
+
         arp_table = []
 
         output = self._send_command('show arp')
@@ -161,7 +164,7 @@ class S350Driver(NetworkDriver):
                 'interface': interface,
                 'mac': napalm.base.helpers.mac(mac),
                 'ip': ip,
-                'age': 0,
+                'age': 0.0,
             }
 
             arp_table.append(entry)
