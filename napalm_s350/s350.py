@@ -410,57 +410,67 @@ class S350Driver(NetworkDriver):
 
         # First determine all interfaces with valid LLDP neighbors
         for local_port in self.get_lldp_neighbors().keys():
-            # Set defaults, just in case the remote fails to provide a field.
-            remote_port_id, remote_port_description, remote_chassis_id, \
-                remote_system_name, remote_system_description, \
-                remote_system_capab, remote_system_enable_capab = (u'N/A',) * 7
 
-            output = self._send_command('show lldp neighbors {}'.format(local_port))
-
-            for line in output.splitlines():
-                if line.startswith('Port ID'):
-                    remote_port_id = line.split()[-1]
-                elif line.startswith('Device ID'):
-                    remote_chassis_id = line.split()[-1]
-                elif line.startswith('Port description'):
-                    remote_port_description = self._get_lldp_line_value(line)
-                elif line.startswith('System Name'):
-                    remote_system_name = self._get_lldp_line_value(line)
-                elif line.startswith('System description'):
-                    remote_system_description = self._get_lldp_line_value(line)
-                elif line.startswith('Capabilities'):
-                    # Only the enabled capabilities are displayed.
-                    try:
-                        # Split a line like 'Capabilities: Bridge, Router, Wlan-Access-Point'
-                        capabilities = line.split(':')[1:][0].split(',')
-                    except KeyError:
-                        capabilities = []
-
-                    caps = []
-                    # For all capabilities, except 'Repeater', the shorthand
-                    # is the first character.
-                    for cap in capabilities:
-                        cap = cap.strip()
-                        if cap == 'Repeater':
-                            caps.append('r')
-                        else:
-                            caps.append(cap[0])
-
-                    print(caps)
-            entry = {
-                'parent_interface': u'N/A',
-                'remote_port': remote_port_id,
-                'remote_port_description': remote_port_description,
-                'remote_chassis_id': remote_chassis_id,
-                'remote_system_name': remote_system_name,
-                'remote_system_description': remote_system_description,
-                'remote_system_capab': caps,
-                'remote_system_enable_capab': caps,
-            }
+            entry = self._get_lldp_neighbors_detail_parse(local_port)
 
             details[local_port] = [entry, ]
 
         return details
+
+    def _get_lldp_neighbors_detail_parse(self, local_port):
+        # Set defaults, just in case the remote fails to provide a field.
+        remote_port_id, remote_port_description, remote_chassis_id, \
+            remote_system_name, remote_system_description, \
+            remote_system_capab, remote_system_enable_capab = (u'N/A',) * 7
+
+        output = self._send_command('show lldp neighbors {}'.format(local_port))
+
+        for line in output.splitlines():
+            if line.startswith('Port ID'):
+                remote_port_id = line.split()[-1]
+            elif line.startswith('Device ID'):
+                remote_chassis_id = line.split()[-1]
+            elif line.startswith('Port description'):
+                remote_port_description = self._get_lldp_line_value(line)
+            elif line.startswith('System Name'):
+                remote_system_name = self._get_lldp_line_value(line)
+            elif line.startswith('System description'):
+                remote_system_description = self._get_lldp_line_value(line)
+            elif line.startswith('Capabilities'):
+                caps = self._get_lldp_neighbors_detail_capabilities_parse(line)
+
+        entry = {
+            'parent_interface': u'N/A',
+            'remote_port': remote_port_id,
+            'remote_port_description': remote_port_description,
+            'remote_chassis_id': remote_chassis_id,
+            'remote_system_name': remote_system_name,
+            'remote_system_description': remote_system_description,
+            'remote_system_capab': caps,
+            'remote_system_enable_capab': caps,
+        }
+
+        return entry
+
+    def _get_lldp_neighbors_detail_capabilities_parse(self, line):
+        # Only the enabled capabilities are displayed.
+        try:
+            # Split a line like 'Capabilities: Bridge, Router, Wlan-Access-Point'
+            capabilities = line.split(':')[1:][0].split(',')
+        except KeyError:
+            capabilities = []
+
+        caps = []
+        # For all capabilities, except 'Repeater', the shorthand
+        # is the first character.
+        for cap in capabilities:
+            cap = cap.strip()
+            if cap == 'Repeater':
+                caps.append('r')
+            else:
+                caps.append(cap[0])
+
+        return caps
 
     def get_ntp_servers(self):
         """get_ntp_servers implementation for S350"""
