@@ -197,20 +197,7 @@ class S350Driver(NetworkDriver):
         show_hosts = self._send_command('show hosts')
         show_int_st = self._send_command('show interface status')
 
-        # os_version
-        # detect os ver > 2
-        if 'Active-image' in show_ver:
-            for line in show_ver.splitlines():
-                # First version line is the active version
-                if 'Version' in line:
-                    _, os_version = line.split('Version: ')
-                    break
-        else:
-            for line in show_ver.splitlines():
-                if 'SW version' in line:
-                    _, ver = line.split('    ')
-                    os_version, _ = ver.split(' (')
-                    break
+        os_version = self._get_facts(show_ver)
 
         # hostname, uptime
         for line in show_sys.splitlines():
@@ -264,6 +251,23 @@ class S350Driver(NetworkDriver):
             'uptime': uptime,
             'vendor': u'Cisco',
         }
+
+    def _get_facts_parse_os_version(self, show_ver):
+        # os_version
+        # detect os ver > 2
+        if 'Active-image' in show_ver:
+            for line in show_ver.splitlines():
+                # First version line is the active version
+                if 'Version' in line:
+                    _, os_version = line.split('Version: ')
+                    break
+        else:
+            for line in show_ver.splitlines():
+                if 'SW version' in line:
+                    _, ver = line.split('    ')
+                    os_version, _ = ver.split(' (')
+                    break
+        return os_version
 
     def get_interfaces(self):
         """
