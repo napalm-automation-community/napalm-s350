@@ -32,7 +32,7 @@ from napalm.base.exceptions import (
     CommandErrorException,
     ConnectionClosedException,
 )
-
+import napalm.base.constants as C
 import napalm.base.helpers
 
 
@@ -164,7 +164,7 @@ class S350Driver(NetworkDriver):
 
         return arp_table
 
-    def get_config(self, retrieve='all'):
+    def get_config(self, retrieve='all', full=False, sanitized=False):
         """
         get_config for S350. Since this firmware doesn't support a candidate
         configuration we leave it empty.
@@ -175,14 +175,48 @@ class S350Driver(NetworkDriver):
             'running': '',
             'candidate': '',
         }
-
+        
         if retrieve in ('all', 'startup'):
-            output = self._send_command('show startup-config')
-            configs['startup'] = output
+            startup = self._send_command('show startup-config')
+            configs['startup'] = self._get_config_filter(startup)
 
         if retrieve in ('all', 'running'):
-            output = self._send_command('show running-config')
-            configs['running'] = output
+            # IOS supports "full" only on "show running-config"
+            run_full = " detailed" if full else ""
+            running = self._send_command('show running-config' + run_full)
+            configs['running'] = self._get_config_filter(running)
+
+        if sanitized:
+            configs = self._get_config_sanitized(configs)
+
+        return configs
+
+    def _get_config_filter(self, config):
+        # The output of get_config should be directly usable by load_replace_candidate()
+
+        # remove header
+        filter_strings = [
+            r"(?sm)^config-file-header.*^@$",
+        ]
+
+        for ft in filter_strings:
+            config = re.sub(ft, "", config)
+
+        return config
+    
+    def _get_config_sanitized(self, configs):
+        # Do not output sensitive information 
+
+        # use Cisco IOS filters
+        configs = napalm.base.helpers.sanitize_configs(configs, C.CISCO_SANITIZE_FILTERS)
+
+        # defina my own filters
+        s350_filters = {
+            r"^(.* password) (\S+) (\S+) (.*)$": r"\1 \2 <removed> \4",
+            r"^(snmp-server location) (\S+).*$": r"\1 <removed>",
+        }
+
+        configs = napalm.base.helpers.sanitize_configs(configs, s350_filters)
 
         return configs
 
