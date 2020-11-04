@@ -175,7 +175,7 @@ class S350Driver(NetworkDriver):
             'running': '',
             'candidate': '',
         }
-        
+
         if retrieve in ('all', 'startup'):
             startup = self._send_command('show startup-config')
             configs['startup'] = self._get_config_filter(startup)
@@ -203,9 +203,9 @@ class S350Driver(NetworkDriver):
             config = re.sub(ft, "", config)
 
         return config
-    
+
     def _get_config_sanitized(self, configs):
-        # Do not output sensitive information 
+        # Do not output sensitive information
 
         # use Cisco IOS filters
         configs = napalm.base.helpers.sanitize_configs(configs, C.CISCO_SANITIZE_FILTERS)
@@ -452,7 +452,7 @@ class S350Driver(NetworkDriver):
                 if interface == local_port:
                     entry = self._get_lldp_neighbors_detail_parse(local_port)
                     details[local_port] = [entry, ]
-                    
+
             else:
                 entry = self._get_lldp_neighbors_detail_parse(local_port)
                 details[local_port] = [entry, ]
@@ -515,7 +515,7 @@ class S350Driver(NetworkDriver):
         return caps
 
     def get_ntp_servers(self):
-        """get_ntp_servers implementation for S350"""
+        """Returns NTP servers."""
         ntp_servers = {}
         output = self._send_command('show sntp status')
 
