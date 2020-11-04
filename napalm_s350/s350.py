@@ -128,7 +128,7 @@ class S350Driver(NetworkDriver):
         uptime_sec = (int(days) * 86400) + (int(hours) * 3600) + (int(minutes) * 60) + int(seconds)
         return uptime_sec
 
-    def get_arp_table(self, vrf=None):
+    def get_arp_table(self, vrf=""):
         """
         Get the ARP table, the age isn't readily available so we leave that out for now.
 
@@ -440,7 +440,7 @@ class S350Driver(NetworkDriver):
 
         return value
 
-    def get_lldp_neighbors_detail(self):
+    def get_lldp_neighbors_detail(self, interface=""):
         """
         get_lldp_neighbors_detail() implementation for s350
         """
@@ -448,10 +448,14 @@ class S350Driver(NetworkDriver):
 
         # First determine all interfaces with valid LLDP neighbors
         for local_port in self.get_lldp_neighbors().keys():
-
-            entry = self._get_lldp_neighbors_detail_parse(local_port)
-
-            details[local_port] = [entry, ]
+            if interface:
+                if interface == local_port:
+                    entry = self._get_lldp_neighbors_detail_parse(local_port)
+                    details[local_port] = [entry, ]
+                    
+            else:
+                entry = self._get_lldp_neighbors_detail_parse(local_port)
+                details[local_port] = [entry, ]
 
         return details
 
