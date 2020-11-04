@@ -197,7 +197,7 @@ class S350Driver(NetworkDriver):
         show_hosts = self._send_command('show hosts')
         show_int_st = self._send_command('show interface status')
 
-        os_version = self._get_facts(show_ver)
+        os_version = self._get_facts_parse_os_version(show_ver)
 
         # hostname, uptime
         for line in show_sys.splitlines():
