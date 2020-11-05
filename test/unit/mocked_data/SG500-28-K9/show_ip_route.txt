@@ -1,0 +1,6 @@
+Maximum Parallel Paths: 1 (1 after reset)
+IP Forwarding: disabled
+Codes: > - best, C - connected, S - static
+
+
+C   10.0.0.0/8 is directly connected,
