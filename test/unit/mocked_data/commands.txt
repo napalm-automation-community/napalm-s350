@@ -10,6 +10,7 @@ show version
 show system
 show interfaces status 
 show interfaces description
+show ports jumbo-frame
 
 # choose any physical interface on your device
 show lldp local GigabitEthernet1 
