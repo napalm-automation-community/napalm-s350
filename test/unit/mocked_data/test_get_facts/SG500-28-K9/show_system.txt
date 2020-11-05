@@ -1,0 +1,18 @@
+
+Unit          Type
+---- ----------------------
+ 1          SG500-28
+
+Unit   FAN
+       Status
+----   ---------
+ 1       N/A
+
+Unit   Temperature (Celsius)   Temperature Sensor Status
+---- ------------------------- -------------------------
+ 1                                        N/A
+
+
+Unit     Up time
+---- ---------------
+ 1     00,00:21:27
