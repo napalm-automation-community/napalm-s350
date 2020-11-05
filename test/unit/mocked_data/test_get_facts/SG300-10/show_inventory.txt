@@ -1,0 +1,4 @@
+
+NAME: "1"   DESCR: "SG300-10 10-Port Gigabit Managed Switch"
+PID: SRW2008-K9   VID: V05   SN: AAAABBBBCCC
+
