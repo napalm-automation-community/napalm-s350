@@ -406,14 +406,17 @@ class S350Driver(NetworkDriver):
                 match = re.match(r'^--------- -+ .*$', line)
                 if match:
                     header = False
+                    fields_end = self._get_lldp_neighbors_fields_end(line)
                 continue
 
-            line_elems = line.split()
+            line_elems = self._get_lldp_neighbors_line_to_fields(line, fields_end)
 
-            # long system name owerflow to the other line
-            if len(line_elems) == 1:
-                # complete remote name
-                remote_name = remote_name + line_elems[0]
+            # info owerflow to the other line
+            if     line_elems[0] == '' or line_elems[4] == '' or line_elems[5] == '' :
+                # complete owerflown fields
+                local_port  = local_port  + line_elems[0]
+                remote_port = remote_port + line_elems[2]
+                remote_name = remote_name + line_elems[3]
                 # then reuse old values na rewrite previous entry
             else:
                 local_port = line_elems[0]
@@ -428,6 +431,26 @@ class S350Driver(NetworkDriver):
             neighbors[local_port] = neighbor_list
 
         return neighbors
+
+    def _get_lldp_neighbors_line_to_fields(self, line, fields_end):
+        """ dynamic fields lenghts """
+        line_elems={}
+        index=0
+        f_start=0
+        for f_end in fields_end:
+            line_elems[index] = line[f_start:f_end].strip()
+            index += 1
+            f_start = f_end
+        return line_elems
+
+    def _get_lldp_neighbors_fields_end(self, dashline):
+        """ fields length are diferent device to device, detect them on horizontal lin """
+
+        fields_end=[m.start() for m in re.finditer(' ', dashline)]
+        #fields_position.insert(0,0)
+        fields_end.append(len(dashline))
+
+        return fields_end
 
     def _get_lldp_line_value(self, line):
         """
