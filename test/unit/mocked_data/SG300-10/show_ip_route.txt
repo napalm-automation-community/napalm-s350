@@ -1,0 +1,7 @@
+Maximum Parallel Paths: 1 (1 after reset)
+IP Forwarding: disabled
+Codes: > - best, C - connected, S - static
+
+
+C   192.168.1.0/24 is directly connected, vlan 1
+

@@ -1,0 +1,40 @@
+config-file-header
+switchf5bcdb
+v1.4.11.5 / R800_NIK_1_4_220_026
+CLI v1.0
+set system mode switch
+
+file SSD indicator encrypted
+@
+ssd-control-start
+ssd config
+ssd file passphrase control unrestricted
+no ssd file integrity control
+ssd-control-end cb0a3fdb1f3a1af4e4430033719968c0
+!
+voice vlan oui-table add 0001e3 Siemens_AG_phone________
+voice vlan oui-table add 00036b Cisco_phone_____________
+voice vlan oui-table add 00096e Avaya___________________
+voice vlan oui-table add 000fe2 H3C_Aolynk______________
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone___________
+voice vlan oui-table add 00e075 Polycom/Veritel_phone___
+voice vlan oui-table add 00e0bb 3Com_phone______________
+hostname switchf5bcdb
+username root password encrypted dddd5d7b474d2c78ebbb833789c4bfd721edf4bf privilege 15
+ip ssh server
+ip ssh password-auth
+sntp unicast client enable
+sntp unicast client poll
+sntp server 1.2.3.4
+!
+interface gigabitethernet1
+ description test1
+!
+interface gigabitethernet2
+ description test2
+!
+interface gigabitethernet5
+ description test5
+!
+exit
