@@ -1,0 +1,19 @@
+
+Device ID: 50:f7:22:aa:bb:cc
+Port ID: gi7
+Capabilities: Bridge
+System Name: switchaabbcc
+
+802.3 EEE:
+
+17
+17
+17
+17
+
+
+802.1 PVID: 1
+802.1 PPVID:
+802.1 VLAN:
+802.1 Protocol:
+
