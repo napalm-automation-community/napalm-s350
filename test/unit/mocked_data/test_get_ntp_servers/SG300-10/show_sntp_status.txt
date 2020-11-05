@@ -1,0 +1,22 @@
+
+Clock is unsynchronized
+
+Unicast servers:
+
+Server            : 1.2.3.4
+  Source          : Static
+  Stratum         : 255
+  Status          : unknown
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+
+
+Anycast server:
+
+
+
+Broadcast:
+
+
