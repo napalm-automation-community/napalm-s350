@@ -387,30 +387,68 @@ class S350Driver(NetworkDriver):
     def get_interfaces_ip(self):
         """Returns all configured interface IP addresses."""
         interfaces = {}
-        valid_interfaces = []
         show_ip_int = self._send_command('show ip int')
 
-        # Limit to valid interfaces (i.e. ignore vlan 1)
+        header = True    # cycle trought header
         for line in show_ip_int.splitlines():
-            if ('UP' in line or 'DOWN' in line) and line.split()[-1] == 'Valid':
-                valid_interfaces.append(line)
+            if header:
+                # last line of first header
+                match = re.match(r'^---+ -+ .*$', line)
+                if match:
+                    header = False
+                    fields_end = self._get_ip_int_fields_end(line)
+                continue
 
-        for interface in valid_interfaces:
-            network, name = interface.split()[:2]
+            # next header, stop processing text
+            if re.match(r'^---+ -+ .*$', line):
+                break
 
-            ip = netaddr.IPNetwork(network)
+            line_elems = self._get_ip_int_line_to_fields(line, fields_end)
 
+            # only valid interfaces
+            # v 2.x firmware
+            if 7 in line_elems.keys():
+                if line_elems[7] != 'Valid':
+                    continue
+            # v 1.x firmware
+            elif line_elems[5] != 'Valid':
+                continue
+
+            cidr = line_elems[0]
+            interface = line_elems[1]
+
+            ip = netaddr.IPNetwork(cidr)
             family = 'ipv{0}'.format(ip.version)
 
-            interfaces[name] = {
+            interfaces[interface] = {
                 family: {
-                    str(ip.ip): {
+                   str(ip.ip): {
                         'prefix_length': ip.prefixlen
                     }
                 }
             }
 
         return interfaces
+
+    def _get_ip_int_line_to_fields(self, line, fields_end):
+        """ dynamic fields lenghts """
+        line_elems = {}
+        index = 0
+        f_start = 0
+        for f_end in fields_end:
+            line_elems[index] = line[f_start:f_end].strip()
+            index += 1
+            f_start = f_end
+        return line_elems
+
+    def _get_ip_int_fields_end(self, dashline):
+        """ fields length are diferent device to device, detect them on horizontal lin """
+
+        fields_end = [m.start() for m in re.finditer(' ', dashline)]
+        # fields_position.insert(0,0)
+        fields_end.append(len(dashline))
+
+        return fields_end
 
     def get_lldp_neighbors(self):
         """get_lldp_neighbors implementation for s350"""
