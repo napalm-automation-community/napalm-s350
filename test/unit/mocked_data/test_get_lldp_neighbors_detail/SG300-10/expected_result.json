@@ -1,0 +1,20 @@
+{
+  "gi7": [
+    {
+      "parent_interface": "N/A",
+      "remote_chassis_id": "00:a5:bf:ff:ee:dd",
+      "remote_port": "gi8",
+      "remote_port_description": "",
+      "remote_system_capab": [
+        "B",
+        "R"
+      ],
+      "remote_system_description": "",
+      "remote_system_enable_capab": [
+        "B",
+        "R"
+      ],
+      "remote_system_name": "switchcffeedd"
+    }
+  ]
+}

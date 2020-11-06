@@ -1,0 +1,14 @@
+
+
+    IP Address        I/F    I/F Status  Type   Redirect Status
+                             admin/oper
+------------------ --------- ---------- ------- -------- ------
+0.0.0.0/32         vlan 1    UP/UP      DHCP    enable   Not
+                                                         receiv
+                                                         ed
+192.168.1.254/24   vlan 1    UP/UP      Default enable   Valid
+
+
+  Gateway IP Address        Activity status       Type
+----------------------- ----------------------- --------
+

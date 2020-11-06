@@ -1,0 +1,14 @@
+{
+  "gi7": [
+    {
+      "hostname": "switchcffeedd",
+      "port": "gi8"
+    }
+  ],
+  "gi8": [
+    {
+      "hostname": "test-pc1",
+      "port": "9c:eb:e8:c3:b2:a1"
+    }
+  ]
+}
