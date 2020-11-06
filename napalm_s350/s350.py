@@ -406,12 +406,8 @@ class S350Driver(NetworkDriver):
             line_elems = self._get_ip_int_line_to_fields(line, fields_end)
 
             # only valid interfaces
-            # v 2.x firmware
-            if 7 in line_elems.keys():
-                if line_elems[7] != 'Valid':
-                    continue
-            # v 1.x firmware
-            elif line_elems[5] != 'Valid':
+            # in diferent firmwares there is 'Status' field allwais on last place
+            if line_elems[len(line_elems) -1] != 'Valid':
                 continue
 
             cidr = line_elems[0]
@@ -444,7 +440,7 @@ class S350Driver(NetworkDriver):
     def _get_ip_int_fields_end(self, dashline):
         """ fields length are diferent device to device, detect them on horizontal lin """
 
-        fields_end = [m.start() for m in re.finditer(' ', dashline)]
+        fields_end = [m.start() for m in re.finditer(' ', dashline.strip())]
         # fields_position.insert(0,0)
         fields_end.append(len(dashline))
 
