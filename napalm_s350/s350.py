@@ -239,19 +239,14 @@ class S350Driver(NetworkDriver):
                 _, hostname = line.split('System Name:')
                 hostname = hostname.strip()
                 continue
-            elif line.startswith('System Description:'):
-                _, model = line.split('System Description:')
-                model = model.strip()
-                continue
             elif line.startswith('System Up Time (days,hour:min:sec):'):
                 _, uptime_str = line.split('System Up Time (days,hour:min:sec):')
                 uptime = self._parse_uptime(uptime_str)
 
-        # serial_number
-        for line in show_inv.splitlines():
-            if 'SN:' in line:
-                serial_number = line.split('SN: ')[-1]
-                break
+        # serial_number and model
+        inventory = self._get_facts_parse_inventory(show_inv)['1']
+        serial_number = inventory['sn']
+        model         = inventory['pid']
 
         # fqdn
         domainname = napalm.base.helpers.textfsm_extractor(self, 'hosts',
@@ -285,6 +280,32 @@ class S350Driver(NetworkDriver):
             'uptime': uptime,
             'vendor': u'Cisco',
         }
+
+    def _get_facts_parse_inventory(self, show_inventory):
+        """ inventory can list more modules/devices """
+        # make 1 module 1 line
+        show_inventory = re.sub(r'\nPID', '  PID', show_inventory, re.M)
+        # delete empty lines
+        show_inventory = re.sub(r'^\n', '', show_inventory, re.M)
+        show_inventory = re.sub(r'\n\n', '', show_inventory, re.M)
+        show_inventory = re.sub(r'\n\s*\n', r'\n', show_inventory, re.M)
+        lines = show_inventory.splitlines()
+
+        modules = {}
+        for line in lines:
+            match = re.search(r"""
+                ^
+                NAME:\s"(?P<name>\S+)"\s*
+                DESCR:\s"(?P<descr>[^"]+)"\s*
+                PID:\s(?P<pid>\S+)\s*
+                VID:\s(?P<vid>.+\S)\s*
+                SN:\s(?P<sn>\S+)\s*
+                """, line, re.X)
+            module = match.groupdict()
+            modules[module['name']] = module 
+        
+        if modules:
+            return modules
 
     def _get_facts_parse_os_version(self, show_ver):
         # os_version
