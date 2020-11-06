@@ -1,0 +1,16 @@
+
+Device ID: d8:84:66:ab:ba:de
+Port ID: ge.1.1
+Capabilities: Other
+System Name:
+System description:
+Port description:
+Time To Live: 95
+
+
+802.1 PVID: None
+802.1 PPVID:
+802.1 VLAN:
+802.1 Protocol:
+
+
