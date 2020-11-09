@@ -4,7 +4,7 @@
         "port" : "74:ac:aa:ff:1a:5f"
       } ],
   "gi1/0/35" : [ { 
-        "hostname" : "O",
+        "hostname" : "",
         "port" : "34:e6:aa:ff:53:a8"
       } ],
   "te1/0/1" : [ { 

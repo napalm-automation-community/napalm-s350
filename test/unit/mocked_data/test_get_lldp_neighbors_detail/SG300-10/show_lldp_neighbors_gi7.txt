@@ -1,0 +1,27 @@
+
+Device ID: 00:a5:bf:ff:ee:dd
+Port ID: gi8
+Capabilities: Bridge, Router
+System Name: switchcffeedd
+System description:
+Port description:
+Management Address: 192.168.1.253
+Management Address: 254.128.0.0.0.0
+Time To Live: 118
+
+
+802.3 EEE:
+
+17
+17
+17
+17
+
+
+802.1 PVID: 1
+802.1 PPVID:
+802.1 VLAN:
+802.1 Protocol:
+
+
+
