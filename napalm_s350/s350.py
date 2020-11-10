@@ -256,7 +256,10 @@ class S350Driver(NetworkDriver):
         domainname = domainname['domain_name']
         if domainname == 'Domain':
             domainname = ''
-        fqdn = '{0}.{1}'.format(hostname, domainname)
+        if domainname == '' and hostname == '':
+            fqdn = ''
+        else:
+            fqdn = '{0}.{1}'.format(hostname, domainname)
 
         # interface_list
         interfaces = []
