@@ -1,0 +1,18 @@
+
+Total number of entries: 10
+
+
+  VLAN    Interface     IP address        HW address          status      
+--------------------- --------------- ------------------- --------------- 
+vlan 1     te1/0/4    192.168.0.1       ab:00:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.2       ab:c7:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.65      ab:ea:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.73      ab:ea:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.40      ab:50:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.44      ab:50:ef:12:34:56   dynamic         
+vlan 1                192.168.0.4       ab:50:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.49      ab:50:ef:12:34:56   dynamic         
+vlan 1     te1/0/4    192.168.0.2       ab:50:ef:12:34:56   dynamic         
+vlan 1                192.168.0.142     ab:50:ef:12:34:56   dynamic         
+
+

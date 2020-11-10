@@ -1,0 +1,30 @@
+
+Clock is synchronized, stratum 2, reference is ntp.example.net, unicast
+
+Unicast servers:
+
+Server            : ntp.example.net
+  Source          : Static
+  Stratum         : 2
+  Status          : up
+  Last Response   : 08:45:30.0 CEST Aug 17 2020
+  Offset          : 400.2312430 mSec
+  Delay           : 0 mSec
+
+Server            : ntp.example.net
+  Source          : Static
+  Stratum         : 3
+  Status          : up
+  Last Response   : 08:45:30.0 CEST Aug 17 2020
+  Offset          : 407.0035473 mSec
+  Delay           : 0 mSec
+
+
+
+Anycast server:
+
+
+
+Broadcast:
+
+
