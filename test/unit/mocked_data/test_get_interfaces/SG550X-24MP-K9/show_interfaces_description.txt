@@ -1,8 +1,8 @@
 Port      Description
 -------   -----------
-gi1/0/1   AP ap-cb-sklad-x
-gi1/0/2   AP ap-cb-sklad-x
-gi1/0/3   AP ap-cb-sklad-x
+gi1/0/1   AP
+gi1/0/2   AP
+gi1/0/3   AP
 gi1/0/4   
 gi1/0/5   
 gi1/0/6   

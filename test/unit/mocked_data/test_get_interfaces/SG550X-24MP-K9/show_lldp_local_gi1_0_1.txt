@@ -1,5 +1,5 @@
 
-Device ID: switch-c
+Device ID: aa:ab:cd:12:34:56
 Port ID: gi1/0/1
 Capabilities: Bridge, Router
 System Name: switch-c

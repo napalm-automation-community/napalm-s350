@@ -3,7 +3,7 @@ Clock is synchronized, stratum 2, reference is ntp.example.net, unicast
 
 Unicast servers:
 
-Server            : ntp.example.net
+Server            : ntp1.example.net
   Source          : Static
   Stratum         : 2
   Status          : up
@@ -11,7 +11,7 @@ Server            : ntp.example.net
   Offset          : 400.2312430 mSec
   Delay           : 0 mSec
 
-Server            : ntp.example.net
+Server            : ntp2.example.net
   Source          : Static
   Stratum         : 3
   Status          : up

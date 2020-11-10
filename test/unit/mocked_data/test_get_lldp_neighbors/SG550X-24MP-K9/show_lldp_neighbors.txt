@@ -10,7 +10,7 @@ gi1/0/1   ab:b8:ef:12:34:56 ab:b8:ef:12:34:56 ab:b8:ef:12:34:56      W        94
 gi1/0/2   ab:48:ef:12:34:56 ab:48:ef:12:34:56 IAP207-staffroom       W        113  
 gi1/0/3   ab:b5:ef:12:34:56 ab:b5:ef:12:34:56 ab:b5:ef:12:34:56      W        114  
 gi1/0/4   ab:48:ef:12:34:56 ab:48:ef:12:34:56 ab:48:ef:12:34:56      W        104  
-te1/0/1     switch-c        gi1/0/1        switch-c       B, R      99   
-te1/0/4   ab:a5:ef:12:34:56     Gi1/0/26      switch-c.cb.ma      B        91   
-                                              deta.cz                              
+te1/0/1   12:34:56:ab:cd:ef      gi1/0/1           switch-c         B, R      99   
+te1/0/4   ab:a5:ef:12:34:56     Gi1/0/26      switch-c.cb.madet      B        91   
+                                              a.cz                              
 
