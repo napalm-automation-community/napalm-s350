@@ -6,7 +6,7 @@ TP - Two Ports MAC Relay; S - S-VLAN; C - C-VLAN; O - Other
 
   Port        Device ID        Port ID       System Name    Capabilities  TTL
 --------- ----------------- ------------- ----------------- ------------ -----
-gi1/1/3   00:23:24:02:66:e4 00:23:24:02:6 pc123.cli      H        118
+gi1/1/3   00:23:24:02:66:e4 00:23:24:02:6 pc123.cli              H        118
                             6:e4          ents.test.net
 gi1/1/14  dc:4a:3e:53:fd:af dc:4a:3e:53:f                        O       3255
                             d:af
