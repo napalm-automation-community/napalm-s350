@@ -1,6 +1,6 @@
 { 
-  "fqdn" : "switch1.",
-  "hostname" : "switch1",
+  "fqdn" : "",
+  "hostname" : "",
   "interface_list" : [ 
       "gi1/1/1",
       "gi1/1/2",
@@ -61,9 +61,9 @@
       "Po31",
       "Po32"
     ],
-  "model" : "SG500-28",
+  "model" : "SG500-28-K9",
   "os_version" : "1.4.11.5",
   "serial_number" : "A1B2C3F4G5",
-  "uptime" : 1232968,
+  "uptime" : 1287,
   "vendor" : "Cisco"
 }

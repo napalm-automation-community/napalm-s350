@@ -234,14 +234,16 @@ class S350Driver(NetworkDriver):
         os_version = self._get_facts_parse_os_version(show_ver)
 
         # hostname, uptime
+        hostname = ''
         for line in show_sys.splitlines():
             if line.startswith('System Name:'):
                 _, hostname = line.split('System Name:')
                 hostname = hostname.strip()
                 continue
-            elif line.startswith('System Up Time (days,hour:min:sec):'):
-                _, uptime_str = line.split('System Up Time (days,hour:min:sec):')
-                uptime = self._parse_uptime(uptime_str)
+
+        # uptime
+        uptime_str = self._get_facts_uptime(show_sys)
+        uptime = self._parse_uptime(uptime_str)
 
         # serial_number and model
         inventory = self._get_facts_parse_inventory(show_inv)['1']
@@ -281,6 +283,35 @@ class S350Driver(NetworkDriver):
             'vendor': u'Cisco',
         }
 
+    def _get_facts_uptime(self, show_sys):
+        i = 0
+        syslines = []
+        fields = []
+        uptime_header_lineNo = None
+        uptime_str = None
+        for line in show_sys.splitlines():
+            # All models except SG500 fw 1.4.x
+            if line.startswith('System Up Time (days,hour:min:sec):'):
+                _, uptime_str = line.split('System Up Time (days,hour:min:sec):')
+                break
+
+            line = re.sub(r'  *', ' ', line, re.M)
+            line = line.strip()
+
+            fields = line.split(' ')
+            syslines.append(fields)
+
+            if 'Unit' in syslines[i] and 'time' in syslines[i]:
+                uptime_header_lineNo = i
+
+            i += 1
+        
+        # SG500 fw 1.4.x
+        if not uptime_str:
+            uptime_str = syslines[uptime_header_lineNo+2][1]
+
+        return uptime_str
+
     def _get_facts_parse_inventory(self, show_inventory):
         """ inventory can list more modules/devices """
         # make 1 module 1 line
@@ -310,18 +341,28 @@ class S350Driver(NetworkDriver):
     def _get_facts_parse_os_version(self, show_ver):
         # os_version
         # detect os ver > 2
-        if 'Active-image' in show_ver:
+        if re.search(r"^Active-image", show_ver):
             for line in show_ver.splitlines():
                 # First version line is the active version
-                if 'Version' in line:
+                if re.search(r"Version:", line):
                     _, os_version = line.split('Version: ')
                     break
-        else:
+        elif re.search(r"^SW version", show_ver):
             for line in show_ver.splitlines():
-                if 'SW version' in line:
+                if re.search(r"^SW version", line):
                     _, ver = line.split('    ')
                     os_version, _ = ver.split(' (')
                     break
+        else:
+            # show_ver = re.sub(r'^\n', '', show_ver, re.M)
+            for line in show_ver.splitlines():
+                line = re.sub(r'  *', ' ', line, re.M)
+                line = line.strip()
+                line_comps= line.split(' ')
+                if line_comps[0] == '1':
+                    os_version = line_comps[1]
+                    break
+
         return os_version
 
     def get_interfaces(self):
