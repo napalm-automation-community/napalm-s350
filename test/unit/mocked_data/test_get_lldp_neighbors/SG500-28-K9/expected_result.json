@@ -1,0 +1,14 @@
+{ 
+  "gi1/1/3" : [ {
+        "hostname" : "pc123.clients.test.net",
+        "port" : "00:23:24:02:66:e4"
+      } ],
+  "gi1/1/14" : [ {
+        "hostname" : "",
+        "port" : "dc:4a:3e:53:fd:af"
+      } ],
+  "gi1/1/26" : [ {
+        "hostname" : "",
+        "port" : "ge.1.1"
+      } ]
+}
