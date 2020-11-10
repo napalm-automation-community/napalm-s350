@@ -1,0 +1,26 @@
+System Description:                       SG550X-24MP 24-Port Gigabit PoE Stackable Managed Switch
+System Up Time (days,hour:min:sec):       74,06:36:40
+System Contact:                           
+System Name:                              switch-c
+System Location:                          some place
+                                          lad;1;bunka ve skladu
+System MAC Address:                       ab:a6:ef:12:34:56
+System Object ID:                         192.168.0.1.192.168.0.6.192.168.0.6
+
+Unit          Type          
+---- ---------------------- 
+ 1        SG550X-24MP       
+
+
+Unit Main Power Supply Redundant Power Supply 
+---- ----------------- ---------------------- 
+ 1        Active           Not Connected      
+
+Unit                Fans Status             
+----   -------------------------------------
+ 1      FANs OK, redundant fan Ready     
+
+Unit Temperature (Celsius)   Status   
+---- --------------------- ---------- 
+ 1            36               OK     
+

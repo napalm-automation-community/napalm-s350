@@ -1,0 +1,26 @@
+{ 
+  "gi1/0/1" : [ { 
+        "hostname" : "ab:b8:ef:12:34:56",
+        "port" : "ab:b8:ef:12:34:56"
+      } ],
+  "gi1/0/2" : [ { 
+        "hostname" : "IAP207-staffroom",
+        "port" : "ab:48:ef:12:34:56"
+      } ],
+  "gi1/0/3" : [ { 
+        "hostname" : "ab:b5:ef:12:34:56",
+        "port" : "ab:b5:ef:12:34:56"
+      } ],
+  "gi1/0/4" : [ { 
+        "hostname" : "ab:48:ef:12:34:56",
+        "port" : "ab:48:ef:12:34:56"
+      } ],
+  "te1/0/1" : [ { 
+        "hostname" : "switch-c",
+        "port" : "gi1/0/1"
+      } ],
+  "te1/0/4" : [ { 
+        "hostname" : "switch-c.cb.madeta.cz",
+        "port" : "Gi1/0/26"
+      } ]
+}

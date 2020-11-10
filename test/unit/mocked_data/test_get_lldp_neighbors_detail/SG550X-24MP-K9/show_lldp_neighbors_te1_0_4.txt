@@ -1,0 +1,20 @@
+
+Device ID: ab:a5:ef:12:34:56
+Port ID: Gi1/0/26
+Capabilities: Bridge
+System Name: switch-c.example.net
+System description: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(6)E, RELEASE SOFTWARE (fc4)
+Technical Support: http://www.cisco.com/techsupport
+Copyrig
+Port description: SW switch-c
+Management Address: 192.168.0.38
+Time To Live: 118
+
+
+802.1 PVID: 1
+802.1 PPVID: 
+802.1 VLAN:
+802.1 Protocol: 
+
+
+
