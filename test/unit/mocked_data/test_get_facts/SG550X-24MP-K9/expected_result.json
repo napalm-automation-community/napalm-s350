@@ -64,7 +64,7 @@
       "Po32"
     ],
   "model" : "SG550X-24MP-K9",
-  "os_version" : "192.168.0.71",
+  "os_version" : "2.4.5.71",
   "serial_number" : "SOME123456SN",
   "uptime" : 6417400,
   "vendor" : "Cisco"
