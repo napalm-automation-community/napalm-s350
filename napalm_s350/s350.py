@@ -248,7 +248,7 @@ class S350Driver(NetworkDriver):
         # serial_number and model
         inventory = self._get_facts_parse_inventory(show_inv)['1']
         serial_number = inventory['sn']
-        model         = inventory['pid']
+        model = inventory['pid']
 
         # fqdn
         domainname = napalm.base.helpers.textfsm_extractor(self, 'hosts',
@@ -308,7 +308,7 @@ class S350Driver(NetworkDriver):
                 uptime_header_lineNo = i
 
             i += 1
-        
+
         # SG500 fw 1.4.x
         if not uptime_str:
             uptime_str = syslines[uptime_header_lineNo+2][1]
@@ -336,8 +336,8 @@ class S350Driver(NetworkDriver):
                 SN:\s(?P<sn>\S+)\s*
                 """, line, re.X)
             module = match.groupdict()
-            modules[module['name']] = module 
-        
+            modules[module['name']] = module
+
         if modules:
             return modules
 
@@ -361,7 +361,7 @@ class S350Driver(NetworkDriver):
             for line in show_ver.splitlines():
                 line = re.sub(r'  *', ' ', line, re.M)
                 line = line.strip()
-                line_comps= line.split(' ')
+                line_comps = line.split(' ')
                 if line_comps[0] == '1':
                     os_version = line_comps[1]
                     break
@@ -395,7 +395,6 @@ class S350Driver(NetworkDriver):
                 # from the first port and use it everywhere.
                 if mac == '0':
                     show_system_output = self._send_command('show lldp local ' + interface)
-
                     mac = show_system_output.splitlines()[0].split(':', maxsplit=1)[1].strip()
 
                 if speed == '--':
@@ -451,7 +450,7 @@ class S350Driver(NetworkDriver):
 
             # only valid interfaces
             # in diferent firmwares there is 'Status' field allwais on last place
-            if line_elems[len(line_elems) -1] != 'Valid':
+            if line_elems[len(line_elems) - 1] != 'Valid':
                 continue
 
             cidr = line_elems[0]
@@ -511,9 +510,9 @@ class S350Driver(NetworkDriver):
             line_elems = self._get_lldp_neighbors_line_to_fields(line, fields_end)
 
             # info owerflow to the other line
-            if     line_elems[0] == '' or line_elems[4] == '' or line_elems[5] == '' :
+            if line_elems[0] == '' or line_elems[4] == '' or line_elems[5] == '' :
                 # complete owerflown fields
-                local_port  = local_port  + line_elems[0]
+                local_port = local_port + line_elems[0]
                 remote_port = remote_port + line_elems[2]
                 remote_name = remote_name + line_elems[3]
                 # then reuse old values na rewrite previous entry
@@ -533,9 +532,9 @@ class S350Driver(NetworkDriver):
 
     def _get_lldp_neighbors_line_to_fields(self, line, fields_end):
         """ dynamic fields lenghts """
-        line_elems={}
-        index=0
-        f_start=0
+        line_elems = {}
+        index = 0
+        f_start = 0
         for f_end in fields_end:
             line_elems[index] = line[f_start:f_end].strip()
             index += 1
@@ -545,8 +544,7 @@ class S350Driver(NetworkDriver):
     def _get_lldp_neighbors_fields_end(self, dashline):
         """ fields length are diferent device to device, detect them on horizontal lin """
 
-        fields_end=[m.start() for m in re.finditer(' ', dashline)]
-        #fields_position.insert(0,0)
+        fields_end = [m.start() for m in re.finditer(' ', dashline)]
         fields_end.append(len(dashline))
 
         return fields_end
