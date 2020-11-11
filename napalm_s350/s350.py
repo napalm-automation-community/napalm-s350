@@ -35,6 +35,7 @@ from napalm.base.exceptions import (
 import napalm.base.constants as C
 import napalm.base.helpers
 
+
 class S350Driver(NetworkDriver):
     """Napalm driver for S350."""
 
