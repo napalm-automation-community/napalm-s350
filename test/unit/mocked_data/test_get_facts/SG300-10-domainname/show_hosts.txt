@@ -1,0 +1,32 @@
+
+Name/address lookup is enabled
+Domain Timeout: 2 seconds
+Domain Retry: 1 times
+Domain Polling Interval: 8 seconds
+
+
+Default Domain Table
+
+                   Domain                    Source  Interface Preference
+-------------------------------------------- ------- --------- ----------
+test.iai.kit.edu                             static
+
+
+Name Server Table
+
+                 IP Address                  Source  Interface Preference
+-------------------------------------------- ------- --------- ----------
+Name server is not configured
+
+
+Cache Table
+Flags: (STA/DYN, OK/NE/??)
+STA - Static, DYN - Dynamic
+OK - Okay, NE - Negative Cache, ?? - No Response
+
+                                                               Remaining
+          Host                   Addresses         Type State     TTL
+------------------------- ------------------------ ---- ------ ----------
+No hostname is mapped to an IP address
+
+
