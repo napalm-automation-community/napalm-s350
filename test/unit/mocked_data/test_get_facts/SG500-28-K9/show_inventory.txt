@@ -1,0 +1,3 @@
+
+NAME: "1"   DESCR: "SG500-28 28-Port Gigabit Stackable Managed Switch"
+PID: SG500-28-K9   VID: V02   SN: A1B2C3F4G5

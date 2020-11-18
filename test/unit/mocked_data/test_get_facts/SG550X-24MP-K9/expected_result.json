@@ -1,5 +1,5 @@
 { 
-  "fqdn" : "switch-c.",
+  "fqdn" : "Unknown",
   "hostname" : "switch-c",
   "interface_list" : [ 
       "gi1/0/1",

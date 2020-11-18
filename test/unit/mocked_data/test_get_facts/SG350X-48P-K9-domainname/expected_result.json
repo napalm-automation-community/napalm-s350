@@ -1,5 +1,5 @@
 { 
-  "fqdn" : "Unknown",
+  "fqdn" : "switch1.example.net",
   "hostname" : "switch1",
   "interface_list" : [ 
       "gi1/0/1",

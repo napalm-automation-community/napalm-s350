@@ -1,6 +1,6 @@
 { 
-  "fqdn" : "",
-  "hostname" : "",
+  "fqdn" : "switch1.test.iai.kit.edu",
+  "hostname" : "switch1",
   "interface_list" : [ 
       "gi1/1/1",
       "gi1/1/2",

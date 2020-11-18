@@ -222,7 +222,7 @@ class S350Driver(NetworkDriver):
 
     def get_facts(self):
         """Return a set of facts from the device."""
-        serial_number, fqdn, os_version, hostname, domain_name = ('Unknown',) * 5
+        serial_number, fqdn, os_version, hostname, domainname = ('Unknown',) * 5
 
         # Submit commands to the device.
         show_ver = self._send_command('show version')
@@ -233,13 +233,13 @@ class S350Driver(NetworkDriver):
 
         os_version = self._get_facts_parse_os_version(show_ver)
 
-        # hostname, uptime
-        hostname = ''
-        for line in show_sys.splitlines():
-            if line.startswith('System Name:'):
-                _, hostname = line.split('System Name:')
-                hostname = hostname.strip()
-                continue
+        # hostname
+        hostname = self._get_facts_hostname(show_sys)
+        # special case for SG500 fw v1.4.x
+        if hostname == 'Unknown':
+            hostname = self._get_facts_hostname_from_config(
+                                self._send_command('show running-config')
+                        )
 
         # uptime
         uptime_str = self._get_facts_uptime(show_sys)
@@ -255,10 +255,8 @@ class S350Driver(NetworkDriver):
                                                            show_hosts)[0]
         domainname = domainname['domain_name']
         if domainname == 'Domain':
-            domainname = ''
-        if domainname == '' and hostname == '':
-            fqdn = ''
-        else:
+            domainname = 'Unknown'
+        if domainname != "Unknown" and hostname != "Unknown":
             fqdn = '{0}.{1}'.format(hostname, domainname)
 
         # interface_list
@@ -285,6 +283,27 @@ class S350Driver(NetworkDriver):
             'uptime': uptime,
             'vendor': u'Cisco',
         }
+
+    def _get_facts_hostname_from_config(self, show_running):
+        # special case for SG500 fw v1.4.x
+        hostname = 'Unknown'
+        for line in show_running.splitlines():
+            if line.startswith('hostname '):
+                _, hostname = line.split('hostname')
+                hostname = hostname.strip()
+                break
+
+        return hostname
+
+    def _get_facts_hostname(self, show_sys):
+        hostname = 'Unknown'
+        for line in show_sys.splitlines():
+            if line.startswith('System Name:'):
+                _, hostname = line.split('System Name:')
+                hostname = hostname.strip()
+                break
+
+        return hostname
 
     def _get_facts_uptime(self, show_sys):
         i = 0
