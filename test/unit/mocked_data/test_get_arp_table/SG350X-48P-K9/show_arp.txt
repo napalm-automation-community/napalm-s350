@@ -1,0 +1,18 @@
+
+Total number of entries: 10
+
+
+  VLAN    Interface     IP address        HW address          status      
+--------------------- --------------- ------------------- --------------- 
+vlan 852   te1/0/1    19.51.0.1       00:00:0c:07:ac:01   dynamic         
+vlan 852   te1/0/1    19.51.0.2       e4:c7:22:fe:e0:43   dynamic         
+vlan 852   te1/0/1    19.51.0.5       bc:ea:fa:b4:15:aa   dynamic         
+vlan 852   te1/0/1    19.51.0.3       bc:ea:fa:b4:14:6f   dynamic         
+vlan 852   te1/0/1    19.51.0.1       5c:8a:38:2e:bd:c0   dynamic         
+vlan 852   te1/0/1    19.51.0.8       5c:8a:38:2e:fd:e0   dynamic         
+vlan 852   te1/0/1    19.51.1.4       00:50:56:93:19:b7   dynamic         
+vlan 852   te1/0/1    19.51.1.5       00:50:56:92:2f:cb   dynamic         
+vlan 852              19.51.1.2       00:50:56:9e:51:f3   dynamic         
+vlan 852              19.51.14.5      a4:4c:c8:7d:37:03   dynamic         
+
+

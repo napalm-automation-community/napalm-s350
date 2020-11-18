@@ -1,8 +1,5 @@
 """Tests for getters."""
-
 from napalm.base.test.getters import BaseTestGetters
-
-
 import pytest
 
 

@@ -1,0 +1,9 @@
+
+Total number of entries: 2
+
+
+  VLAN    Interface     IP address        HW address          status
+--------------------- --------------- ------------------- ---------------
+vlan 202              10.0.3.1        00:15:17:27:9c:4d   dynamic
+vlan 202              10.0.3.4        00:50:56:90:23:e8   dynamic
+

@@ -1,0 +1,16 @@
+
+NAME: "1"   DESCR: "SG350X-48P 48-Port Gigabit PoE Stackable Managed Switch"   
+PID: SG350X-48P-K9   VID: V04   SN: AAA00000BBB   
+
+
+NAME: "TengigabitEthernet1/0/1"    DESCR: "SFP-1000Base-LX"    
+PID: GLC-LH-SMD    VID: V01     SN: IAB8888888          
+
+
+NAME: "TengigabitEthernet1/0/3"    DESCR: "SFP-1000Base-SX"    
+PID: SFP-1000-SX    VID: Information Unavailable    SN: A888666             
+
+
+NAME: "TengigabitEthernet1/0/4"    DESCR: "SFP-10Gbase-CX1"    
+PID: SFP-H10G-CU1M    VID: Information Unavailable    SN: AB0B000B0AB000B     
+

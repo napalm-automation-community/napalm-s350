@@ -1,0 +1,3 @@
+ 
+ Jumbo frames are enabled
+ Jumbo frames will be enabled after reset

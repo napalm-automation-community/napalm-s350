@@ -1,0 +1,21 @@
+System Description:                       SG350X-48P 48-Port Gigabit PoE Stackable Managed Switch
+System Up Time (days,hour:min:sec):       14,06:29:28
+System Contact:                           
+System Name:                              switch1
+System Location:                          SW location 
+System MAC Address:                       04:eb:40:e3:91:7f
+System Object ID:                         1.3.6.1.4.1.9.6.1.94.48.5
+
+Unit          Type          
+---- ---------------------- 
+ 1         SG350X-48P       
+
+
+Unit                Fans Status             
+----   -------------------------------------
+ 1                FANs OK                
+
+Unit Temperature (Celsius)   Status   
+---- --------------------- ---------- 
+ 1            30               OK     
+

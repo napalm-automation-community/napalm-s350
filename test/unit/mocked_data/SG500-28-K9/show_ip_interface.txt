@@ -1,0 +1,10 @@
+
+
+    IP Address         I/F      I/F Status      Type       Status
+                                admin/oper
+------------------- ---------- ------------- ----------- -----------
+10.0.3.5/8          vlan 202   UP/UP         Static      Valid
+
+
+  Gateway IP Address      Type
+----------------------- --------

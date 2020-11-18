@@ -1,0 +1,9 @@
+
+Total number of entries: 1
+
+
+  VLAN    Interface     IP address        HW address          status
+--------------------- --------------- ------------------- ---------------
+vlan 1                192.168.1.1     9c:eb:e8:aa:bb:cc   dynamic
+
+

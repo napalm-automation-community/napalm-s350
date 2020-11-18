@@ -1,0 +1,11 @@
+
+Device ID: 0c:68:03:9c:39:c1
+Port ID: gi1/1/1
+Capabilities: Bridge
+System Name: switch1
+
+
+802.1 PVID: 488
+802.1 PPVID:
+802.1 VLAN:
+802.1 Protocol:

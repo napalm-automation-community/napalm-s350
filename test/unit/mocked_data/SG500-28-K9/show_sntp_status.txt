@@ -1,0 +1,45 @@
+
+Clock is unsynchronized
+
+Unicast servers:
+
+Server            : 192.168.186.1
+  Source          : Static
+  Stratum         : 255
+  Status          : unknown
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : 192.168.186.2
+  Source          : Static
+  Stratum         : 255
+  Status          : unknown
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : 192.168.186.3
+  Source          : Static
+  Stratum         : 255
+  Status          : unknown
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : 192.168.186.4
+  Source          : Static
+  Stratum         : 255
+  Status          : unknown
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+
+
+Anycast server:
+
+
+
+Broadcast:
+

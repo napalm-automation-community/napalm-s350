@@ -1,0 +1,36 @@
+
+Name/address lookup is enabled
+Domain Timeout: 2 seconds
+Domain Retry: 1 times
+Domain Polling Interval: 8 seconds
+
+
+Default Domain Table
+
+                   Domain                    Source  Interface Preference 
+-------------------------------------------- ------- --------- ---------- 
+example.net                                  static                       
+
+
+Name Server Table
+
+                 IP Address                  Source  Interface Preference 
+-------------------------------------------- ------- --------- ---------- 
+192.168.1.4                                  static            1          
+
+
+Cache Table
+Flags: (STA/DYN, OK/NE/??)
+STA - Static, DYN - Dynamic                           
+OK - Okay, NE - Negative Cache, ?? - No Response
+
+                                                               Remaining
+          Host                   Addresses         Type State     TTL     
+------------------------- ------------------------ ---- ------ ---------- 
+tftp                      192.168.1.4              IPv4 STA,OK            
+pnpserver.example.net     no resolution            IPv6 DYN,NE 0000:00:20 
+pnpserver.example.net     no resolution            IPv4 DYN,NE 0000:00:20
+
+
+
+

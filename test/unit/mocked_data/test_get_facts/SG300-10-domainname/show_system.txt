@@ -1,0 +1,10 @@
+System Description:                       SG300-10 10-Port Gigabit Managed Switch
+System Up Time (days,hour:min:sec):       07,00:53:10
+System Contact:
+System Name:                              switchaabbcc
+System Location:
+System MAC Address:                       50:f7:22:aa:bb:cc
+System Object ID:                         1.3.6.1.4.1.9.6.1.83.10.1
+
+Fans Status:                              N/A
+

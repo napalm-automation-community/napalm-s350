@@ -1,0 +1,16 @@
+{ "gi1/0/1" : [ { 
+        "parent_interface" : "N/A",
+        "remote_chassis_id" : "11:ac:00:66:ff:aa",
+        "remote_port" : "11:ac:00:66:ff:aa",
+        "remote_port_description" : "br0",
+        "remote_system_capab" : [ 
+            "B",
+            "W"
+          ],
+        "remote_system_description" : "ABC-SC-BM, 1.2.34.11111",
+        "remote_system_enable_capab" : [ 
+            "B",
+            "W"
+          ],
+        "remote_system_name" : "SBC"
+      } ] }

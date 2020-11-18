@@ -1,0 +1,9 @@
+Maximum Parallel Paths: 1 (1 after reset)
+IP Forwarding: enabled
+Codes: > - best, C - connected, S - static,
+       R - RIP
+
+
+S   192.168.0.0/0 [1/4] via 192.168.0.1, 589:39:52, vlan 1                       
+C   192.168.0.0/17 is directly connected, vlan 1                             
+
