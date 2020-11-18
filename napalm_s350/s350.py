@@ -516,7 +516,6 @@ class S350Driver(NetworkDriver):
         neighbors = {}
         output = self._send_command('show lldp neighbors')
 
-<<<<<<< HEAD
         header = True    # cycle trought header
         local_port = ''  # keep previous context - multiline syname
         remote_port = ''
@@ -550,7 +549,7 @@ class S350Driver(NetworkDriver):
             }
             neighbor_list = [neighbor, ]
             neighbors[local_port] = neighbor_list
-        
+
         return neighbors
 
     def _get_lldp_neighbors_line_to_fields(self, line, fields_end):
