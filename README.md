@@ -81,4 +81,4 @@ be supported.
 |traceroute                 |       |       |       |       |             |             |
 
 
-NS - devices do not have support for that feature
+NI - not implemented - devices (probably) do not have support for that feature
