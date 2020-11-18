@@ -408,7 +408,10 @@ class S350Driver(NetworkDriver):
 
         for status_line in show_status_output.splitlines():
             if 'Up' in status_line or 'Down' in status_line:
-                interface, _, _, speed, _, _, link_state, _, _ = status_line.split()
+                if "Po" in status_line:
+                    interface, _, _, speed, _, _, link_state = status_line.split()
+                else:
+                    interface, _, _, speed, _, _, link_state, _, _ = status_line.split()
 
                 # Since the MAC address for all the local ports are equal, get the address
                 # from the first port and use it everywhere.
