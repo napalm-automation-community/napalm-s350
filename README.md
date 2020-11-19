@@ -47,9 +47,9 @@ be supported.
 
 | function                  | SG300 | SG500 | SG350 | SG550 | stack SG500 | stack SG550 |
 | :---                      | :---: | :---: | :---: | :---: | :---:       | :---:       |
-| *Send commands*                                                                       |
+| **Send commands**                                                                     |
 | cli                       |       |       |       |       |             |             |
-| *Config manipulation*     |       |       |       |       |             |             |
+| **Config manipulation**                                                               |
 |get_config                 | x     | x     | x     | x     |             |             |
 |get_config (filtered)      | x     | x     | x     | x     |             |             |
 |get_config (sanitized)     | x     | x     | x     | x     |             |             |
@@ -63,7 +63,7 @@ be supported.
 |discard_config             |       |       |       |       |             |             |
 |compliance_report          |       |       |       |       |             |             |
 |load_template              |       |       |       |       |             |             |
-| *Get information*                                                                     |
+| **Get information**                                                                   |
 |get_arp_table              | x     | x     | x     | x     |             |             |
 |get_arp_table (with vrf)   | NI    | NI    | NI    | NI    |             |             |
 |get_bgp_config             |       |       |       |       |             |             |
@@ -90,7 +90,7 @@ be supported.
 |get_snmp_information       |       |       |       |       |             |             |
 |get_users                  |       |       |       |       |             |             |
 |get_vlans                  | x     | x     | x     | x     |             |             |
-| *Other actions*                                                                       |
+| **Other actions**                                                                     |
 |is_alive                   |       |       |       |       |             |             |
 |ping                       |       |       |       |       |             |             |
 |traceroute                 |       |       |       |       |             |             |
