@@ -20,7 +20,7 @@ pip3 install napalm_s350
 ```
 ## CLI test
 
-Default information (the same as `call get_facts`
+Default information (the same as `call get_facts`)
 ```bash
 napalm --user USER --password PASSWORD --vendor s350 HOSTNAME
 ```
