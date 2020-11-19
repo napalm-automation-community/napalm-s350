@@ -47,14 +47,28 @@ be supported.
 
 | function                  | SG300 | SG500 | SG350 | SG550 | stack SG500 | stack SG550 |
 | :---                      | :---: | :---: | :---: | :---: | :---:       | :---:       |
+| *Send commands*                                                                       |
+| cli                       |       |       |       |       |             |             |
+| *Config manipulation*     |       |       |       |       |             |             |
+|get_config                 | x     | x     | x     | x     |             |             |
+|get_config (filtered)      | x     | x     | x     | x     |             |             |
+|get_config (sanitized)     | x     | x     | x     | x     |             |             |
+|load_merge_candidate       |       |       |       |       |             |             |
+|load_replace_candidate     |       |       |       |       |             |             |
+|compare_config             |       |       |       |       |             |             |
+|commit_config              |       |       |       |       |             |             |
+|confirm_commit             |       |       |       |       |             |             |
+|has_pending_commit         |       |       |       |       |             |             |
+|rollback                   |       |       |       |       |             |             |
+|discard_config             |       |       |       |       |             |             |
+|compliance_report          |       |       |       |       |             |             |
+|load_template              |       |       |       |       |             |             |
+| *Get information*                                                                     |
 |get_arp_table              | x     | x     | x     | x     |             |             |
 |get_arp_table (with vrf)   | NI    | NI    | NI    | NI    |             |             |
 |get_bgp_config             |       |       |       |       |             |             |
 |get_bgp_neighbors          |       |       |       |       |             |             |
 |get_bgp_neighbors_detail   |       |       |       |       |             |             |
-|get_config                 | x     | x     | x     | x     |             |             |
-|get_config (filtered)      | x     | x     | x     | x     |             |             |
-|get_config (sanitized)     | x     | x     | x     | x     |             |             |
 |get_environment            |       |       |       |       |             |             |
 |get_facts                  | x     | x     | x     | x     |             |             |
 |get_firewall_policies      |       |       |       |       |             |             |
@@ -76,6 +90,7 @@ be supported.
 |get_snmp_information       |       |       |       |       |             |             |
 |get_users                  |       |       |       |       |             |             |
 |get_vlans                  | x     | x     | x     | x     |             |             |
+| *Other actions*                                                                       |
 |is_alive                   |       |       |       |       |             |             |
 |ping                       |       |       |       |       |             |             |
 |traceroute                 |       |       |       |       |             |             |
