@@ -12,10 +12,10 @@ with open("README.md", "r") as fs:
 
 setup(
     name="napalm-s350",
-    version="0.2.3",
+    version="0.3.0",
     packages=find_packages(exclude=("test*",)),
-    author="Jasper Lievisse Adriaanse, Petr Klíma",
-    author_email="j@jasper.la, qaxi@seznam.cz",
+    author="Jasper Lievisse Adriaanse, Petr Klíma, Daniel Bacher",
+    author_email="j@jasper.la, qaxi@seznam.cz, mail@phill93.de",
     description="NAPALM driver for Cisco SMB switches (SF3xx, SF5xx, SG3xx, SG5xx)",
     license="Apache 2.0",
     long_description=long_description,
