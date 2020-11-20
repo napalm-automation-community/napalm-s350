@@ -23,6 +23,8 @@ pip3 install napalm_s350
 Default information (the same as `call get_facts`
 ```bash
 napalm --user USER --password PASSWORD --vendor s350 HOSTNAME
+
+napalm --user USER --password PASSWORD --vendor s350 HOSTNAME --optional_args "force_no_enable=True"
 ```
 
 Get interfaces
