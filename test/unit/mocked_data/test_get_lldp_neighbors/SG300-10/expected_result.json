@@ -1,11 +1,11 @@
 {
-  "gi7": [
+  "GigabitEthernet7": [
     {
       "hostname": "switchcffeedd",
       "port": "gi8"
     }
   ],
-  "gi8": [
+  "GigabitEthernet8": [
     {
       "hostname": "test-pc1",
       "port": "en1"

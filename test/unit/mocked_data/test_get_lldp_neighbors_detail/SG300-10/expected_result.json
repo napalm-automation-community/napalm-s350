@@ -1,9 +1,9 @@
 {
-  "gi7": [
+  "GigabitEthernet7": [
     {
       "parent_interface": "N/A",
       "remote_chassis_id": "00:a5:bf:ff:ee:dd",
-      "remote_port": "gi8",
+      "remote_port": "GigabitEthernet8",
       "remote_port_description": "",
       "remote_system_capab": [
         "B",

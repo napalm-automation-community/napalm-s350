@@ -1,9 +1,9 @@
 {
-  "gi1/1/26": [
+  "GigabitEthernet1/1/26": [
     {
       "parent_interface": "N/A",
       "remote_chassis_id": "d8:84:66:ab:ba:de",
-      "remote_port": "ge.1.1",
+      "remote_port": "GigabitEthernet.1.1",
       "remote_port_description": "",
       "remote_system_capab": [
         "O"
