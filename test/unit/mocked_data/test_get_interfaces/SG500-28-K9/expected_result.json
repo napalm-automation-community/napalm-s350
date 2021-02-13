@@ -1,5 +1,5 @@
 { 
-  "gi1/1/1" : { 
+  "GigabitEthernet1/1/1" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -8,7 +8,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/2" : { 
+  "GigabitEthernet1/1/2" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -17,7 +17,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/3" : { 
+  "GigabitEthernet1/1/3" : { 
       "description" : "",
       "is_enabled" : true,
       "is_up" : true,
@@ -26,7 +26,7 @@
       "mtu" : 1518,
       "speed" : 1000
     },
-  "gi1/1/4" : { 
+  "GigabitEthernet1/1/4" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -35,7 +35,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/5" : { 
+  "GigabitEthernet1/1/5" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -44,7 +44,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/6" : { 
+  "GigabitEthernet1/1/6" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -53,7 +53,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/7" : { 
+  "GigabitEthernet1/1/7" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -62,7 +62,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/8" : { 
+  "GigabitEthernet1/1/8" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -71,7 +71,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/9" : { 
+  "GigabitEthernet1/1/9" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -80,7 +80,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/10" : { 
+  "GigabitEthernet1/1/10" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -89,7 +89,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/11" : { 
+  "GigabitEthernet1/1/11" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -98,7 +98,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/12" : { 
+  "GigabitEthernet1/1/12" : { 
       "description" : "",
       "is_enabled" : true,
       "is_up" : true,
@@ -107,7 +107,7 @@
       "mtu" : 1518,
       "speed" : 1000
     },
-  "gi1/1/13" : { 
+  "GigabitEthernet1/1/13" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -116,7 +116,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/14" : { 
+  "GigabitEthernet1/1/14" : { 
       "description" : "",
       "is_enabled" : true,
       "is_up" : true,
@@ -125,7 +125,7 @@
       "mtu" : 1518,
       "speed" : 1000
     },
-  "gi1/1/15" : { 
+  "GigabitEthernet1/1/15" : { 
       "description" : "",
       "is_enabled" : true,
       "is_up" : true,
@@ -134,7 +134,7 @@
       "mtu" : 1518,
       "speed" : 1000
     },
-  "gi1/1/16" : { 
+  "GigabitEthernet1/1/16" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -143,7 +143,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/17" : { 
+  "GigabitEthernet1/1/17" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -152,7 +152,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/18" : { 
+  "GigabitEthernet1/1/18" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -161,7 +161,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/19" : { 
+  "GigabitEthernet1/1/19" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -170,7 +170,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/20" : { 
+  "GigabitEthernet1/1/20" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -179,7 +179,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/21" : { 
+  "GigabitEthernet1/1/21" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -188,7 +188,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/22" : { 
+  "GigabitEthernet1/1/22" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -197,7 +197,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/23" : { 
+  "GigabitEthernet1/1/23" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -206,7 +206,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/24" : { 
+  "GigabitEthernet1/1/24" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -215,7 +215,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/25" : { 
+  "GigabitEthernet1/1/25" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -224,7 +224,7 @@
       "mtu" : 1518,
       "speed" : 0
     },
-  "gi1/1/26" : { 
+  "GigabitEthernet1/1/26" : { 
       "description" : "",
       "is_enabled" : true,
       "is_up" : true,

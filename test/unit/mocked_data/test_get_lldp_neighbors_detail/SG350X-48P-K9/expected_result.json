@@ -1,4 +1,4 @@
-{ "gi1/0/1" : [ { 
+{ "GigabitEthernet1/0/1" : [ { 
         "parent_interface" : "N/A",
         "remote_chassis_id" : "11:ac:00:66:ff:aa",
         "remote_port" : "11:ac:00:66:ff:aa",

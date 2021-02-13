@@ -1,21 +1,21 @@
 { 
-  "gi1/0/1" : [ { 
+  "GigabitEthernet1/0/1" : [ { 
         "hostname" : "UBNT",
         "port" : "74:ac:aa:ff:1a:5f"
       } ],
-  "gi1/0/35" : [ { 
+  "GigabitEthernet1/0/35" : [ { 
         "hostname" : "",
         "port" : "34:e6:aa:ff:53:a8"
       } ],
-  "te1/0/1" : [ { 
+  "TengigabitEthernet1/0/1" : [ { 
         "hostname" : "swzdsadas-vedc",
         "port" : "Gi0/23"
       } ],
-  "te1/0/3" : [ { 
+  "TengigabitEthernet1/0/3" : [ { 
         "hostname" : "sw1dsafdsfsdfsdd",
         "port" : "gi28"
       } ],
-  "te1/0/4" : [ { 
+  "TengigabitEthernet1/0/4" : [ { 
         "hostname" : "sw2dsdfssddfd",
         "port" : "te1/0/4"
       } ]

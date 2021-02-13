@@ -32,8 +32,18 @@ from napalm.base.exceptions import (
     CommandErrorException,
     ConnectionClosedException,
 )
+from napalm.base.helpers import canonical_interface_name
+
 import napalm.base.constants as C
-import napalm.base.helpers
+import napalm.base.canonical_map
+
+# make may own base_interfaces for s350
+s350_base_interfaces = {
+    **napalm.base.canonical_map.base_interfaces,
+    'fa': 'FastEthernet',
+    'gi': 'GigabitEthernet',
+    'te': 'TengigabitEthernet'
+}
 
 
 class S350Driver(NetworkDriver):
@@ -153,6 +163,11 @@ class S350Driver(NetworkDriver):
             else:
                 raise ValueError('Unexpected output: {}'.format(line.split()))
 
+            interface = canonical_interface_name(
+                            interface,
+                            s350_base_interfaces
+                        )
+
             entry = {
                 'interface': interface,
                 'mac': napalm.base.helpers.mac(mac),
@@ -271,6 +286,11 @@ class S350Driver(NetworkDriver):
             if not line:
                 continue
             interface = line.split()[0]
+            interface = canonical_interface_name(
+                interface,
+                s350_base_interfaces
+            )
+
             interfaces.append(str(interface))
 
         return {
@@ -445,6 +465,11 @@ class S350Driver(NetworkDriver):
                     'mac_address': napalm.base.helpers.mac(mac)
                 }
 
+                interface = canonical_interface_name(
+                    interface,
+                    s350_base_interfaces
+                )
+
                 interfaces[interface] = entry
 
         return interfaces
@@ -480,6 +505,11 @@ class S350Driver(NetworkDriver):
 
             ip = netaddr.IPNetwork(cidr)
             family = 'ipv{0}'.format(ip.version)
+
+            interface = canonical_interface_name(
+                interface,
+                s350_base_interfaces
+            )
 
             interfaces[interface] = {
                 family: {
@@ -543,6 +573,11 @@ class S350Driver(NetworkDriver):
                 remote_port = line_elems[2]
                 remote_name = line_elems[3]
 
+            local_port = canonical_interface_name(
+                            local_port,
+                            s350_base_interfaces
+                        )
+
             neighbor = {
                 'hostname': remote_name,
                 'port': remote_port,
@@ -593,10 +628,18 @@ class S350Driver(NetworkDriver):
             if interface:
                 if interface == local_port:
                     entry = self._get_lldp_neighbors_detail_parse(local_port)
+                    local_port = canonical_interface_name(
+                                    local_port,
+                                    s350_base_interfaces
+                                )
                     details[local_port] = [entry, ]
 
             else:
                 entry = self._get_lldp_neighbors_detail_parse(local_port)
+                local_port = canonical_interface_name(
+                                local_port,
+                                s350_base_interfaces
+                            )
                 details[local_port] = [entry, ]
 
         return details
@@ -622,6 +665,11 @@ class S350Driver(NetworkDriver):
                 remote_system_description = self._get_lldp_line_value(line)
             elif line.startswith('Capabilities'):
                 caps = self._get_lldp_neighbors_detail_capabilities_parse(line)
+
+        remote_port_id = canonical_interface_name(
+            remote_port_id,
+            s350_base_interfaces
+        )
 
         entry = {
             'parent_interface': u'N/A',

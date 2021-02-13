@@ -1,1 +1,10 @@
-{"gi7": [{"hostname": "switchc23cf0", "port": "gi8"}], "gi8": [{"hostname": "iai-sti006", "port": "9c:eb:e8:52:bd:7c"}]}
+{ 
+  "GigabitEthernet7" : [ { 
+        "hostname" : "switchc23cf0",
+        "port" : "gi8"
+      } ],
+  "GigabitEthernet8" : [ { 
+        "hostname" : "iai-sti006",
+        "port" : "9c:eb:e8:52:bd:7c"
+      } ]
+}

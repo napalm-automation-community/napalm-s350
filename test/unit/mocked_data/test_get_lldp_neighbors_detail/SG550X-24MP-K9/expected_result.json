@@ -1,7 +1,7 @@
-{ "te1/0/4" : [ { 
+{ "TengigabitEthernet1/0/4" : [ { 
         "parent_interface" : "N/A",
         "remote_chassis_id" : "ab:a5:ef:12:34:56",
-        "remote_port" : "Gi1/0/26",
+        "remote_port" : "GigabitEthernet1/0/26",
         "remote_port_description" : "SW switch-c",
         "remote_system_capab" : [ "B" ],
         "remote_system_description" : "Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(6)E, RELEASE SOFTWARE (fc4)",

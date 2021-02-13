@@ -1,5 +1,5 @@
 {
-  "gi1": {
+  "GigabitEthernet1": {
     "description": "test1",
     "is_enabled": true,
     "is_up": true,
@@ -8,7 +8,7 @@
     "mtu": 1518,
     "speed": 1000
   },
-  "gi10": {
+  "GigabitEthernet10": {
     "description": "",
     "is_enabled": false,
     "is_up": false,
@@ -17,7 +17,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "gi2": {
+  "GigabitEthernet2": {
     "description": "test2",
     "is_enabled": false,
     "is_up": false,
@@ -26,7 +26,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "gi3": {
+  "GigabitEthernet3": {
     "description": "",
     "is_enabled": false,
     "is_up": false,
@@ -35,7 +35,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "gi4": {
+  "GigabitEthernet4": {
     "description": "",
     "is_enabled": false,
     "is_up": false,
@@ -44,7 +44,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "gi5": {
+  "GigabitEthernet5": {
     "description": "test5",
     "is_enabled": false,
     "is_up": false,
@@ -53,7 +53,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "gi6": {
+  "GigabitEthernet6": {
     "description": "",
     "is_enabled": true,
     "is_up": true,
@@ -62,7 +62,7 @@
     "mtu": 1518,
     "speed": 1000
   },
-  "gi7": {
+  "GigabitEthernet7": {
     "description": "",
     "is_enabled": false,
     "is_up": false,
@@ -71,7 +71,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "gi8": {
+  "GigabitEthernet8": {
     "description": "",
     "is_enabled": true,
     "is_up": true,
@@ -80,7 +80,7 @@
     "mtu": 1518,
     "speed": 1000
   },
-  "gi9": {
+  "GigabitEthernet9": {
     "description": "",
     "is_enabled": false,
     "is_up": false,
@@ -89,7 +89,7 @@
     "mtu": 1518,
     "speed": 0
   },
-  "Po1": {
+  "Port-channel1": {
     "description": "",
     "is_enabled": true,
     "is_up": true,
