@@ -35,14 +35,14 @@ from napalm.base.exceptions import (
 from napalm.base.helpers import canonical_interface_name
 
 import napalm.base.constants as C
-import napalm.base.canonical_map 
+import napalm.base.canonical_map
 
 # make may own base_interfaces for s350
 s350_base_interfaces = {
     **napalm.base.canonical_map.base_interfaces,
-    'fa':'FastEthernet',
-    'gi':'GigabitEthernet',
-    'te':'TengigabitEthernet'
+    'fa': 'FastEthernet',
+    'gi': 'GigabitEthernet',
+    'te': 'TengigabitEthernet'
 }
 
 
@@ -162,7 +162,7 @@ class S350Driver(NetworkDriver):
                 _, _, interface, ip, mac, _ = line.split()
             else:
                 raise ValueError('Unexpected output: {}'.format(line.split()))
-            
+
             interface = canonical_interface_name(
                             interface,
                             s350_base_interfaces
@@ -505,7 +505,7 @@ class S350Driver(NetworkDriver):
 
             ip = netaddr.IPNetwork(cidr)
             family = 'ipv{0}'.format(ip.version)
-            
+
             interface = canonical_interface_name(
                 interface,
                 s350_base_interfaces
