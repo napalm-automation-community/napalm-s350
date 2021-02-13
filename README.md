@@ -97,3 +97,38 @@ be supported.
 
 
 NI - not implemented - devices (probably) do not have support for that feature
+
+
+=== Want to add new device support?
+
+To be sure we can support new device we use test files.
+
+We need text output of those commands, to add new device:
+```
+show arp
+show startup-config
+show version
+show system
+show inventory
+show hosts
+show interface status
+show running-config
+show interfaces status
+show interfaces description
+show ports jumbo-frame
+show ip int
+show lldp neighbors
+show sntp status
+```
+
+Those commands may need parameter change to suit your configuration:
+```
+show running-config full
+show lldp local FastEthernet1
+show lldp neighbors FastEthernet0/1
+```
+
+Please add each command to separate file - command `show arp` to file named `show_arp.txt`
+
+Make pull request to /napalm-s350/tree/develop/test/unit/mocked_data/`your device type`/
+or if you prefer make a Issue and add files as an atachement.
