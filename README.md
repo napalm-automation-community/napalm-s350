@@ -65,7 +65,7 @@ be supported.
 |load_template              |       |       |       |       |             |             |
 | **Get information**                                                                   |
 |get_arp_table              | x     | x     | x     | x     |             |             |
-|get_arp_table (with vrf)   | NI    | NI    | NI    | NI    |             |             |
+|get_arp_table (with vrf)   | NS    | NS    | NS    | NS    |             |             |
 |get_bgp_config             |       |       |       |       |             |             |
 |get_bgp_neighbors          |       |       |       |       |             |             |
 |get_bgp_neighbors_detail   |       |       |       |       |             |             |
@@ -96,10 +96,10 @@ be supported.
 |traceroute                 |       |       |       |       |             |             |
 
 
-NI - not implemented - devices (probably) do not have support for that feature
+NS - not supported - devices do not have support for that feature
 
 
-=== Want to add new device support?
+## Want to add new device support?
 
 To be sure we can support new device we use test files.
 
