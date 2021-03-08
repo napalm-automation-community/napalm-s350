@@ -265,7 +265,7 @@ class S350Driver(NetworkDriver):
         show_sys = self._send_command("show system")
         show_inv = self._send_command("show inventory")
         show_hosts = self._send_command("show hosts")
-        show_int_st = self._send_command("show interface status")
+        show_int_st = self._send_command("show interfaces status")
 
         os_version = self._get_facts_parse_os_version(show_ver)
 
