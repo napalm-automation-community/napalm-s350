@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-__author__ = 'Jasper Lievisse Adriaanse <j@jasper.la>'
+__author__ = "Jasper Lievisse Adriaanse <j@jasper.la>"
 
 with open("requirements.txt", "r") as fs:
     reqs = [r for r in fs.read().splitlines() if (len(r) > 0 and not r.startswith("#"))]
@@ -21,15 +21,15 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
-        'Topic :: Utilities',
-        'License :: OSI Approved :: Apache Software License',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Operating System :: POSIX :: Linux',
-        'Operating System :: MacOS',
+        "Topic :: Utilities",
+        "License :: OSI Approved :: Apache Software License",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Operating System :: POSIX :: Linux",
+        "Operating System :: MacOS",
     ],
     url="https://github.com/napalm-automation-community/napalm-s350",
     include_package_data=True,

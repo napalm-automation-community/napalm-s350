@@ -23,6 +23,8 @@ pip3 install napalm_s350
 Default information (the same as `call get_facts`)
 ```bash
 napalm --user USER --password PASSWORD --vendor s350 HOSTNAME
+
+napalm --user USER --password PASSWORD --vendor s350 HOSTNAME --optional_args "force_no_enable=True"
 ```
 
 Get interfaces
@@ -48,7 +50,7 @@ be supported.
 | function                  | SG300 | SG500 | SG350 | SG550 | stack SG500 | stack SG550 |
 | :---                      | :---: | :---: | :---: | :---: | :---:       | :---:       |
 | **Send commands**                                                                     |
-| cli                       |       |       |       |       |             |             |
+| cli                       | x     | x     | x     | x     | x           | x           |
 | **Config manipulation**                                                               |
 |get_config                 | x     | x     | x     | x     |             |             |
 |get_config (filtered)      | x     | x     | x     | x     |             |             |
