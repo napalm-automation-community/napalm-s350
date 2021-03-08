@@ -111,6 +111,16 @@ class S350Driver(NetworkDriver):
         """Close the connection to the device."""
         self.device.disconnect()
 
+    def cli(self, commands):
+        output = {}
+        try:
+            for cmd in commands:
+                output[cmd] = self.device.send_command(cmd)
+
+            return output
+        except (socket.error, EOFError) as e:
+            raise ConnectionClosedException(str(e))
+
     def _send_command(self, command):
         """Wrapper for self.device.send.command().
 
