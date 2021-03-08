@@ -99,7 +99,7 @@ class S350Driver(NetworkDriver):
             host=self.hostname,
             username=self.username,
             password=self.password,
-            **self.netmiko_optional_args
+            **self.netmiko_optional_args,
         )
         if not self.force_no_enable:
             self.device.enable()
@@ -152,12 +152,7 @@ class S350Driver(NetworkDriver):
 
         hours, minutes, seconds = timespec.split(":")
 
-        uptime_sec = (
-            (int(days) * 86400)
-            + (int(hours) * 3600)
-            + (int(minutes) * 60)
-            + int(seconds)
-        )
+        uptime_sec = (int(days) * 86400) + (int(hours) * 3600) + (int(minutes) * 60) + int(seconds)
         return uptime_sec
 
     def get_arp_table(self, vrf=""):
@@ -242,9 +237,7 @@ class S350Driver(NetworkDriver):
         # Do not output sensitive information
 
         # use Cisco IOS filters
-        configs = napalm.base.helpers.sanitize_configs(
-            configs, C.CISCO_SANITIZE_FILTERS
-        )
+        configs = napalm.base.helpers.sanitize_configs(configs, C.CISCO_SANITIZE_FILTERS)
 
         # defina my own filters
         s350_filters = {
@@ -456,14 +449,8 @@ class S350Driver(NetworkDriver):
                 # Since the MAC address for all the local ports are equal, get the address
                 # from the first port and use it everywhere.
                 if mac == "0":
-                    show_system_output = self._send_command(
-                        "show lldp local " + interface
-                    )
-                    mac = (
-                        show_system_output.splitlines()[0]
-                        .split(":", maxsplit=1)[1]
-                        .strip()
-                    )
+                    show_system_output = self._send_command("show lldp local " + interface)
+                    mac = show_system_output.splitlines()[0].split(":", maxsplit=1)[1].strip()
 
                 if speed == "--":
                     is_enabled = False
@@ -531,9 +518,7 @@ class S350Driver(NetworkDriver):
 
             interface = canonical_interface_name(interface, s350_base_interfaces)
 
-            interfaces[interface] = {
-                family: {str(ip.ip): {"prefix_length": ip.prefixlen}}
-            }
+            interfaces[interface] = {family: {str(ip.ip): {"prefix_length": ip.prefixlen}}}
 
         return interfaces
 
@@ -643,9 +628,7 @@ class S350Driver(NetworkDriver):
             if interface:
                 if interface == local_port:
                     entry = self._get_lldp_neighbors_detail_parse(local_port)
-                    local_port = canonical_interface_name(
-                        local_port, s350_base_interfaces
-                    )
+                    local_port = canonical_interface_name(local_port, s350_base_interfaces)
                     details[local_port] = [
                         entry,
                     ]
