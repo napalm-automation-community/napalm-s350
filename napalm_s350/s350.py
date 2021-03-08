@@ -89,6 +89,7 @@ class S350Driver(NetworkDriver):
 
         self.port = optional_args.get('port', 22)
         self.device = None
+        self.force_no_enable = optional_args.get("force_no_enable", False)
 
     def open(self):
         """Open a connection to the device."""
@@ -97,7 +98,8 @@ class S350Driver(NetworkDriver):
                                      username=self.username,
                                      password=self.password,
                                      **self.netmiko_optional_args)
-        self.device.enable()
+        if not self.force_no_enable:
+            self.device.enable()
 
     def _discover_file_system(self):
         try:
