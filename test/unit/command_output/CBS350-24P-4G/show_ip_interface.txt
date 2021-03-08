@@ -1,0 +1,6 @@
+
+    IP Address        I/F    I/F Status  Type   Directed  Prec Redirect Status 
+                             admin/oper         Broadcast                      
+------------------ --------- ---------- ------- --------- ---- -------- ------ 
+10.0.0.150/24      vlan 80   UP/UP      Static  disable   No   enable   Valid  
+10.1.2.2/24        vlan 10   UP/UP      Static  disable   No   enable   Valid

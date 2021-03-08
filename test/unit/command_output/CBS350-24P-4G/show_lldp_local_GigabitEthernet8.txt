@@ -1,0 +1,30 @@
+Device ID: a4:b2:d9:a4:sb:6f
+Port ID: a4:b2:d9:a4:4b:97
+Capabilities: Bridge, Router
+System Name: sw-abnam-cde-q
+Management address: 11.2.5.245
+
+802.3 Power Via Mdi:
+ MDI Power support Port Class: PSE
+ PSE MDI Power Support: Supported
+ PSE MDI Power State: Enabled
+ PSE power pair control ability: Not supported
+ PSE Power Pair: Spare
+ PSE Power class: 0
+ Power Type: Type 2 PSE
+ Power Source: Primary Power Source
+ Power Priority: low
+ PSE Allocated Power Value: 13.0
+
+802.3 EEE:
+
+   Local Tx:         17 uSec
+   Local Rx:         17 uSec
+   Local Tx Echo:    17 uSec
+   Local Rx Echo:    17 uSec
+
+
+802.1 PVID: 80
+802.1 PPVID: 
+802.1 VLAN:
+802.1 Protocol:
