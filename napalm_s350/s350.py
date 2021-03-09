@@ -487,7 +487,7 @@ class S350Driver(NetworkDriver):
     def get_interfaces_ip(self):
         """Returns all configured interface IP addresses."""
         interfaces = {}
-        show_ip_int = self._send_command("show ip int")
+        show_ip_int = self._send_command("show ip interface")
 
         header = True  # cycle trought header
         for line in show_ip_int.splitlines():

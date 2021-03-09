@@ -1,0 +1,56 @@
+Clock is synchronized, stratum 3, reference is time-pnp.cisco.com, unicast
+
+Unicast servers:
+
+Server            : pool.ntp.org
+  Source          : Static
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Last Request    : 12:34:59.0 UTC Mar 8 2021
+  Stratum Level   : 255
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : time-a.timefreq.bldrdoc.gov
+  Source          : Static
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Last Request    : 12:34:59.0 UTC Mar 8 2021
+  Stratum Level   : 255
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : time-b.timefreq.bldrdoc.gov
+  Source          : Static
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Last Request    : 12:34:59.0 UTC Mar 8 2021
+  Stratum Level   : 255
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : time-c.timefreq.bldrdoc.gov
+  Source          : Static
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Last Request    : 12:34:59.0 UTC Mar 8 2021
+  Stratum Level   : 255
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : time-pnp.cisco.com
+  Source          : Static
+  Status          : down
+  Last Response   : 09:04:55.0 UTC Feb 2 2021
+  Last Request    : 12:34:59.0 UTC Mar 8 2021
+  Stratum Level   : 3
+  Offset          : 1071.7822163 mSec
+  Delay           : 0 mSec
+
+
+
+Anycast server:
+
+
+
+Broadcast:

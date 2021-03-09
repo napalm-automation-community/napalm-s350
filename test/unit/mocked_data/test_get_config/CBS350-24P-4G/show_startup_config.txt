@@ -1,0 +1,125 @@
+config-file-header
+sw-aanam-1
+v3.0.0.61 / RCBS3.0_930_770_007
+CLI v1.0
+file SSD indicator encrypted
+@
+ssd-control-start
+ssd config
+ssd file passphrase control unrestricted
+no ssd file integrity control
+ssd-control-end cb0a3fdb1f3a1af4e4430033719968c0
+!
+!
+unit-type-control-start
+unit-type unit 1 network gi uplink none
+unit-type-control-end
+!
+vlan database
+vlan 11,90
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone
+voice vlan oui-table add 00036b Cisco_phone
+voice vlan oui-table add 00096e Avaya
+voice vlan oui-table add 000fe2 H3C_Aolynk
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone
+voice vlan oui-table add 00e075 Polycom/Veritel_phone
+voice vlan oui-table add 00e0bb 3Com_phone
+bonjour interface range vlan 1
+hostname sw-aaam-1
+passwords complexity min-classes 1
+passwords aging 0
+username admin password encrypted $15$hOzXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxSr3B5mYiBowArSTInvxasXF1umt+b2zU71rN5ghTlqmJOK9lcFBN7Qw== privilege 15
+username klima password encrypted $15$y3ZXXXXXXXXXXXXXXXXXXXXXXXXXXXXccccccccccccccccccccci47sUAjWsjT3ZgH83/d2zIkbZorN/ycex1Q+6omIfCuE5e3jQTw== privilege 15
+ip ssh server
+ip ssh password-auth
+ip ssh pubkey-auth
+ip domain name aanam.example.com
+ip telnet server
+!
+interface vlan 1
+ no ip address dhcp
+!
+interface vlan 11
+ name LAN-Madeta
+ ip address 11.7.6.2 255.255.255.0
+!
+interface vlan 90
+ name LAN-Internet
+ ip address 12.9.7.254 255.255.255.0
+!
+interface GigabitEthernet1
+ switchport access vlan 90
+!
+interface GigabitEthernet2
+ switchport access vlan 90
+!
+interface GigabitEthernet3
+ switchport access vlan 90
+!
+interface GigabitEthernet4
+ switchport access vlan 90
+!
+interface GigabitEthernet5
+ switchport access vlan 90
+!
+interface GigabitEthernet6
+ switchport access vlan 90
+!
+interface GigabitEthernet7
+ switchport access vlan 90
+!
+interface GigabitEthernet8
+ switchport access vlan 90
+!
+interface GigabitEthernet9
+ switchport access vlan 90
+!
+interface GigabitEthernet10
+ switchport access vlan 90
+!
+interface GigabitEthernet11
+ switchport access vlan 90
+!
+interface GigabitEthernet12
+ switchport access vlan 90
+!
+interface GigabitEthernet13
+ switchport access vlan 90
+!
+interface GigabitEthernet14
+ switchport access vlan 90
+!
+interface GigabitEthernet15
+ switchport access vlan 90
+!
+interface GigabitEthernet16
+ switchport access vlan 90
+!
+interface GigabitEthernet17
+ switchport access vlan 90
+!
+interface GigabitEthernet18
+ switchport access vlan 90
+!
+interface GigabitEthernet19
+ switchport access vlan 11
+!
+interface GigabitEthernet20
+ switchport access vlan 11
+!
+interface GigabitEthernet21
+ switchport access vlan 11
+!
+interface GigabitEthernet22
+ switchport access vlan 11
+!
+interface GigabitEthernet23
+ switchport access vlan 11
+!
+interface GigabitEthernet24
+ switchport access vlan 11
+!
+exit
+ip default-gateway 11.7.6.1

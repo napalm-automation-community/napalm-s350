@@ -1,0 +1,6 @@
+[ { 
+    "age" : 0.0,
+    "interface" : "GigabitEthernet19",
+    "ip" : "10.7.3.5",
+    "mac" : "00:2D:B9:58:4E:1D"
+  } ]
