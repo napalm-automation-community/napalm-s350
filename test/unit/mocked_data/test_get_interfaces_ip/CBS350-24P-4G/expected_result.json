@@ -1,0 +1,4 @@
+{ 
+  "vlan 10" : { "ipv4" : { "10.1.2.2" : { "prefix_length" : 24 } } },
+  "vlan 80" : { "ipv4" : { "10.0.0.150" : { "prefix_length" : 24 } } }
+}

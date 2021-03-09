@@ -1,0 +1,26 @@
+{ 
+  "GigabitEthernet8" : [ { 
+        "hostname" : "APLobby",
+        "port" : "78:b2:b9:95:56:2a"
+      } ],
+  "GigabitEthernet9" : [ { 
+        "hostname" : "APlut",
+        "port" : "78:b2:b9:95:56:49"
+      } ],
+  "GigabitEthernet12" : [ { 
+        "hostname" : "APZelen",
+        "port" : "78:b2:b9:95:57:3a"
+      } ],
+  "GigabitEthernet13" : [ { 
+        "hostname" : "APModr",
+        "port" : "78:b2:b9:b5:4a:9c"
+      } ],
+  "GigabitEthernet14" : [ { 
+        "hostname" : "",
+        "port" : "dc:4a:5e:56:8f:36"
+      } ],
+  "GigabitEthernet16" : [ { 
+        "hostname" : "APerven",
+        "port" : "e3:65:da:32:be:43"
+      } ]
+}
