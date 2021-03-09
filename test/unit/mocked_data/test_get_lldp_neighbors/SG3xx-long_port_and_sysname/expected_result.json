@@ -1,9 +1,9 @@
 { 
-  "gi7" : [ { 
+  "GigabitEthernet7" : [ { 
         "hostname" : "switchc23cf0",
         "port" : "gi8"
       } ],
-  "gi8" : [ { 
+  "GigabitEthernet8" : [ { 
         "hostname" : "iai-sti0067.example.net",
         "port" : "9c:eb:e8:52:bd:7c"
       } ]

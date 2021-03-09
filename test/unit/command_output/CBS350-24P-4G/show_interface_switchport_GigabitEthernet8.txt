@@ -1,0 +1,33 @@
+S-VLAN Ethernet Type:  0x8100 (802.1q)
+VLAN Mapping Tunnel L2 protocols Global CoS: 5
+Name: gi8
+Switchport: enable
+Administrative Mode: access
+Operational Mode: up
+Access Mode VLAN: 80
+Access Multicast TV VLAN: none
+Trunking Native Mode VLAN: 1
+Trunking VLANs: 1,11,90
+                        2-10,12-89,81-4094 (Inactive)
+General PVID: 1
+General VLANs: none
+General Egress Tagged VLANs: none
+General Forbidden VLANs: none
+General Ingress Filtering: enabled
+General Acceptable Frame Type: all
+General GVRP status: disabled
+Customer Mode VLAN: none
+Customer Multicast TV VLANs: none
+Private-vlan promiscuous-association primary VLAN: none
+Private-vlan promiscuous-association Secondary VLANs: none
+Private-vlan host-association primary VLAN: none
+Private-vlan host-association Secondary VLAN: none
+
+VLAN Mapping Tunnel - no resources
+
+VLAN Mapping One-To-One - no resources
+
+Classification rules:
+
+Classification type Group ID VLAN ID 
+------------------- -------- -------

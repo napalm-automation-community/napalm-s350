@@ -1,0 +1,41 @@
+Port      Description
+-------   -----------
+gi1       
+gi2       
+gi3       
+gi4       
+gi5       server
+gi6       
+gi7       
+gi8       
+gi9       
+gi10      
+gi11      
+gi12      
+gi13      
+gi14      
+gi15      
+gi16      
+gi17      
+gi18      
+gi19      
+gi20      
+gi21      
+gi22      
+gi23      
+gi24      
+gi25      
+gi26      
+gi27      
+gi28      
+
+Ch        Description
+-------   -----------
+Po1       
+Po2       
+Po3       
+Po4       
+Po5       
+Po6       
+Po7       
+Po8

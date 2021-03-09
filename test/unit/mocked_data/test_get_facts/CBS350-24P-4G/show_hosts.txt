@@ -1,0 +1,43 @@
+Name/address lookup is enabled
+Domain Timeout: 2 seconds
+Domain Retry: 1 times
+Domain Polling Interval: 8 seconds
+
+
+Default Domain Table
+
+                   Domain                    Source  Interface Preference 
+-------------------------------------------- ------- --------- ---------- 
+abnam.example.com                            static                       
+
+
+Name Server Table
+
+                 IP Address                  Source  Interface Preference 
+-------------------------------------------- ------- --------- ---------- 
+fe80::1%vlan1                                DHCPv6  vlan 1    1          
+
+
+Cache Table
+Flags: (STA/DYN, OK/NE/??)
+STA - Static, DYN - Dynamic
+OK - Okay, NE - Negative Cache, ?? - No Response
+
+                                                               Remaining
+          Host                   Addresses         Type State     TTL     
+------------------------- ------------------------ ---- ------ ---------- 
+pool.ntp.org              no resolution            IPv4 DYN,??            
+time-pnp.cisco.com        no resolution            IPv6 DYN,??            
+time-pnp.cisco.com        no resolution            IPv4 DYN,??            
+time-a.timefreq.bldrdoc.g no resolution            IPv6 DYN,??            
+ov                                                                        
+time-a.timefreq.bldrdoc.g no resolution            IPv4 DYN,??            
+ov                                                                        
+time-b.timefreq.bldrdoc.g no resolution            IPv6 DYN,??            
+ov                                                                        
+time-b.timefreq.bldrdoc.g no resolution            IPv4 DYN,??            
+ov                                                                        
+time-c.timefreq.bldrdoc.g no resolution            IPv6 DYN,??            
+ov                                                                        
+time-c.timefreq.bldrdoc.g no resolution            IPv4 DYN,??            
+ov

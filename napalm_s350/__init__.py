@@ -15,4 +15,4 @@
 """napalm-s350 package."""
 from napalm_s350.s350 import S350Driver  # noqa
 
-__all__ = ('S350Driver',)
+__all__ = ("S350Driver",)

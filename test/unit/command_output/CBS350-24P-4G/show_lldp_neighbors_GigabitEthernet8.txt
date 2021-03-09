@@ -1,0 +1,46 @@
+Device ID: 75:e6:b9:83:56:2a
+Port ID: 75:e6:b9:83:56:2a
+Capabilities: Bridge, Wlan-Access-Point
+System Name: APLobby
+System description: AP-UF, 5.2.28.18361
+Port description: bri0
+Management Address: 11.2.6.7
+Management Address: 2a00:1028:96d4:b546:768c:b97f:fe93:562a
+Time To Live: 95
+
+
+802.3 MAC/PHY Configuration/Status
+Auto-negotiation support:  Not supported
+Auto-negotiation status:  Disabled
+Auto-negotiation Advertised Capabilities: 
+Operational MAU type: Unknown
+
+802.3 Link Aggregation
+Aggregation capability: Capable of being aggregated
+Aggregation status: Currently not in aggregation
+
+
+802.3 EEE:
+
+   Remote Tx:         17 uSec
+   Remote Rx:         17 uSec
+   Remote Tx Echo:    17 uSec
+   Remote Rx Echo:    17 uSec
+
+
+802.1 PVID: None
+802.1 PPVID: 
+802.1 VLAN:
+802.1 Protocol: 
+
+
+LLDP-MED capabilities: Capabilities, Network Policy, Location, POE-PSE, POE-PD, Inventory
+LLDP-MED Device Type: Network Connectivity
+
+Hardware revision: 
+Firmware revision: 
+Software revision: 5.2.28.18361
+Serial number: 
+Manufacturer name: 
+Model name: 
+Asset ID:
