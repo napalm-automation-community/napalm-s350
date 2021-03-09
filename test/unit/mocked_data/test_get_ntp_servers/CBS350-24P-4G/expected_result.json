@@ -1,0 +1,7 @@
+{ 
+  "pool.ntp.org" : {  },
+  "time-a.timefreq.bldrdoc.gov" : {  },
+  "time-b.timefreq.bldrdoc.gov" : {  },
+  "time-c.timefreq.bldrdoc.gov" : {  },
+  "time-pnp.cisco.com" : {  }
+}

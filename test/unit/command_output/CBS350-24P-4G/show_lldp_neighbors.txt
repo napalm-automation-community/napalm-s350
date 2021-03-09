@@ -1,0 +1,13 @@
+System capability legend:
+B - Bridge; R - Router; W - Wlan Access Point; T - telephone;
+D - DOCSIS Cable Device; H - Host; r - Repeater;
+TP - Two Ports MAC Relay; S - S-VLAN; C - C-VLAN; O - Other
+
+  Port        Device ID          Port ID         System Name    Capabilities  TTL  
+--------- ----------------- ----------------- ----------------- ------------ ----- 
+gi8       78:b2:b9:95:56:2a 78:b2:b9:95:56:2a      APLobby          B, W      97   
+gi9       78:b2:b9:95:56:49 78:b2:b9:95:56:49       APlut           B, W      138  
+gi13      78:b2:b9:b5:4a:9c 78:b2:b9:b5:4a:9c      APModr           B, W      135  
+gi12      78:b2:b9:95:57:3a 78:b2:b9:95:57:3a      APZelen          B, W      117  
+gi14      dc:4a:5e:56:8f:36 dc:4a:5e:56:8f:36                        O       5586  
+gi16      e3:65:da:32:be:43 e3:65:da:32:be:43      APerven          B, W      98
