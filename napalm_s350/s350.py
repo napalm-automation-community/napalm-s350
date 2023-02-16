@@ -77,6 +77,7 @@ class S350Driver(NetworkDriver):
             "alt_key_file": "",
             "ssh_config_file": None,
             "allow_agent": False,
+            "session_log": None,
             "read_timeout_override": None,
         }
 
