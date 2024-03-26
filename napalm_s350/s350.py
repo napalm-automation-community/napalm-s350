@@ -45,6 +45,8 @@ s350_base_interfaces = {
     "te": "TengigabitEthernet",
 }
 
+from typing import List
+
 
 class S350Driver(NetworkDriver):
     """Napalm driver for S350."""
@@ -120,16 +122,6 @@ class S350Driver(NetworkDriver):
     def close(self):
         """Close the connection to the device."""
         self.device.disconnect()
-
-    def cli(self, commands):
-        output = {}
-        try:
-            for cmd in commands:
-                output[cmd] = self.device.send_command(cmd)
-
-            return output
-        except (socket.error, EOFError) as e:
-            raise ConnectionClosedException(str(e))
 
     def _send_command(self, command):
         """Wrapper for self.device.send.command().
@@ -291,7 +283,8 @@ class S350Driver(NetworkDriver):
             fqdn = "{0}.{1}".format(hostname, domainname)
 
         # interface_list
-        interfaces = []
+
+        interfaces: List[str] = []
         show_int_st = show_int_st.strip()
         # remove the header information
         show_int_st = re.sub(
@@ -312,7 +305,7 @@ class S350Driver(NetworkDriver):
             "model": str(model),
             "os_version": str(os_version),
             "serial_number": str(serial_number),
-            "uptime": uptime,
+            "uptime": float(uptime),
             "vendor": "Cisco",
         }
 

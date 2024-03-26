@@ -12,7 +12,7 @@ with open("README.md", "r") as fs:
 
 setup(
     name="napalm-s350",
-    version="0.3.1",
+    version="0.4.0",
     packages=find_packages(exclude=("test*",)),
     author="Jasper Lievisse Adriaanse, Petr Klíma, Daniel Bacher",
     author_email="j@jasper.la, qaxi@seznam.cz, mail@phill93.de",
@@ -25,9 +25,12 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Operating System :: POSIX :: Linux",
         "Operating System :: MacOS",
     ],
