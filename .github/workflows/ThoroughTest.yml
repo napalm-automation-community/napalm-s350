@@ -17,7 +17,7 @@ on:
     - cron: '0 6 5,20 * *'
 jobs:
 
-  build:
+  tox_test:
 
     runs-on: ubuntu-latest
     strategy:
