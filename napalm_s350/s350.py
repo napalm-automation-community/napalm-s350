@@ -89,6 +89,7 @@ class S350Driver(NetworkDriver):
             except KeyError:
                 pass
 
+        self.platform = "s350"
         self.port = optional_args.get("port", 22)
         self.device = None
         self.force_no_enable = optional_args.get("force_no_enable", False)
