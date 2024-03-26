@@ -11,7 +11,7 @@ PyPi: [![Upload](https://github.com/napalm-automation-community/napalm-s350/work
 
 ## Requirements
 
-Python 3.6+, napalm 3+
+Python 3.8+, napalm 3
 
 ## Installation 
 

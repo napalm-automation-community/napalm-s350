@@ -77,6 +77,8 @@ class S350Driver(NetworkDriver):
             "alt_key_file": "",
             "ssh_config_file": None,
             "allow_agent": False,
+            "session_log": None,
+            "read_timeout_override": None,
         }
 
         # Allow for passing additional Netmiko arguments
@@ -87,6 +89,7 @@ class S350Driver(NetworkDriver):
             except KeyError:
                 pass
 
+        self.platform = "s350"
         self.port = optional_args.get("port", 22)
         self.device = None
         self.force_no_enable = optional_args.get("force_no_enable", False)
@@ -364,7 +367,7 @@ class S350Driver(NetworkDriver):
         return uptime_str
 
     def _get_facts_parse_inventory(self, show_inventory):
-        """ inventory can list more modules/devices """
+        """inventory can list more modules/devices"""
         # make 1 module 1 line
         show_inventory = re.sub(r"\nPID", "  PID", show_inventory, re.M)
         # delete empty lines
@@ -471,7 +474,7 @@ class S350Driver(NetworkDriver):
                 entry = {
                     "is_up": is_up,
                     "is_enabled": is_enabled,
-                    "speed": speed,
+                    "speed": float(speed),
                     "mtu": mtu,
                     "last_flapped": -1.0,
                     "description": description,
@@ -523,7 +526,7 @@ class S350Driver(NetworkDriver):
         return interfaces
 
     def _get_ip_int_line_to_fields(self, line, fields_end):
-        """ dynamic fields lenghts """
+        """dynamic fields lenghts"""
         line_elems = {}
         index = 0
         f_start = 0
@@ -534,7 +537,7 @@ class S350Driver(NetworkDriver):
         return line_elems
 
     def _get_ip_int_fields_end(self, dashline):
-        """ fields length are diferent device to device, detect them on horizontal lin """
+        """fields length are diferent device to device, detect them on horizontal line"""
 
         fields_end = [m.start() for m in re.finditer(" ", dashline.strip())]
         # fields_position.insert(0,0)
@@ -588,7 +591,7 @@ class S350Driver(NetworkDriver):
         return neighbors
 
     def _get_lldp_neighbors_line_to_fields(self, line, fields_end):
-        """ dynamic fields lenghts """
+        """dynamic fields lenghts"""
         line_elems = {}
         index = 0
         f_start = 0
@@ -599,7 +602,7 @@ class S350Driver(NetworkDriver):
         return line_elems
 
     def _get_lldp_neighbors_fields_end(self, dashline):
-        """ fields length are diferent device to device, detect them on horizontal lin """
+        """fields length are diferent device to device, detect them on horizontal line"""
 
         fields_end = [m.start() for m in re.finditer(" ", dashline)]
         fields_end.append(len(dashline))
