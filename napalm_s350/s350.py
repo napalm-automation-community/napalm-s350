@@ -474,7 +474,7 @@ class S350Driver(NetworkDriver):
                 entry = {
                     "is_up": is_up,
                     "is_enabled": is_enabled,
-                    "speed": speed,
+                    "speed": float(speed),
                     "mtu": mtu,
                     "last_flapped": -1.0,
                     "description": description,
