@@ -6,6 +6,7 @@ name: Publish To PyPi.org
 on:
   release:
     types: [created]
+  workflow_dispatch:
 
 jobs:
   deploy:
