@@ -33,6 +33,7 @@ from napalm.base.exceptions import (
     ConnectionClosedException,
 )
 from napalm.base.helpers import canonical_interface_name
+from napalm.base.netmiko_helpers import netmiko_args
 
 import napalm.base.constants as C
 import napalm.base.canonical_map
@@ -65,31 +66,7 @@ class S350Driver(NetworkDriver):
         self._dest_file_system = optional_args.get("dest_file_system", None)
 
         # Netmiko possible arguments
-        netmiko_argument_map = {
-            "port": None,
-            "secret": "",
-            "verbose": False,
-            "keepalive": 30,
-            "global_delay_factor": 1,
-            "use_keys": False,
-            "key_file": None,
-            "ssh_strict": False,
-            "system_host_keys": False,
-            "alt_host_keys": False,
-            "alt_key_file": "",
-            "ssh_config_file": None,
-            "allow_agent": False,
-            "session_log": None,
-            "read_timeout_override": None,
-        }
-
-        # Allow for passing additional Netmiko arguments
-        self.netmiko_optional_args = {}
-        for k, v in netmiko_argument_map.items():
-            try:
-                self.netmiko_optional_args[k] = optional_args[k]
-            except KeyError:
-                pass
+        self.netmiko_optional_args = netmiko_args(optional_args)
 
         self.platform = "s350"
         self.port = optional_args.get("port", 22)
