@@ -1,4 +1,4 @@
-{ "TengigabitEthernet1/0/4" : [ { 
+{ "TenGigabitEthernet1/0/4" : [ { 
         "parent_interface" : "N/A",
         "remote_chassis_id" : "ab:a5:ef:12:34:56",
         "remote_port" : "GigabitEthernet1/0/26",

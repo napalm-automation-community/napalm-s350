@@ -1,12 +1,12 @@
 [
-	{"interface": "TengigabitEthernet1/0/1", "mac": "00:00:0C:07:AC:01", "ip": "19.51.0.1", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "E4:C7:22:FE:E0:43", "ip": "19.51.0.2", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "BC:EA:FA:B4:15:AA", "ip": "19.51.0.5", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "BC:EA:FA:B4:14:6F", "ip": "19.51.0.3", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "5C:8A:38:2E:BD:C0", "ip": "19.51.0.1", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "5C:8A:38:2E:FD:E0", "ip": "19.51.0.8", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "00:50:56:93:19:B7", "ip": "19.51.1.4", "age": 0.0},
-	{"interface": "TengigabitEthernet1/0/1", "mac": "00:50:56:92:2F:CB", "ip": "19.51.1.5", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "00:00:0C:07:AC:01", "ip": "19.51.0.1", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "E4:C7:22:FE:E0:43", "ip": "19.51.0.2", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "BC:EA:FA:B4:15:AA", "ip": "19.51.0.5", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "BC:EA:FA:B4:14:6F", "ip": "19.51.0.3", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "5C:8A:38:2E:BD:C0", "ip": "19.51.0.1", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "5C:8A:38:2E:FD:E0", "ip": "19.51.0.8", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "00:50:56:93:19:B7", "ip": "19.51.1.4", "age": 0.0},
+	{"interface": "TenGigabitEthernet1/0/1", "mac": "00:50:56:92:2F:CB", "ip": "19.51.1.5", "age": 0.0},
 	{"interface": "VLAN852", "mac": "00:50:56:9E:51:F3", "ip": "19.51.1.2", "age": 0.0},
 	{"interface": "VLAN852", "mac": "A4:4C:C8:7D:37:03", "ip": "19.51.14.5", "age": 0.0}
 ]

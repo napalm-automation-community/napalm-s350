@@ -215,7 +215,7 @@
       "mtu" : 9000,
       "speed" : 0
     },
-  "TengigabitEthernet1/0/1" : { 
+  "TenGigabitEthernet1/0/1" : { 
       "description" : "SW switch-c",
       "is_enabled" : true,
       "is_up" : true,
@@ -224,7 +224,7 @@
       "mtu" : 9000,
       "speed" : 1000
     },
-  "TengigabitEthernet1/0/2" : { 
+  "TenGigabitEthernet1/0/2" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -233,7 +233,7 @@
       "mtu" : 9000,
       "speed" : 0
     },
-  "TengigabitEthernet1/0/3" : { 
+  "TenGigabitEthernet1/0/3" : { 
       "description" : "",
       "is_enabled" : false,
       "is_up" : false,
@@ -242,7 +242,7 @@
       "mtu" : 9000,
       "speed" : 0
     },
-  "TengigabitEthernet1/0/4" : { 
+  "TenGigabitEthernet1/0/4" : { 
       "description" : "SW switch-c",
       "is_enabled" : true,
       "is_up" : true,
