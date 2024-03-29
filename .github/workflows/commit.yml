@@ -3,15 +3,10 @@
 
 name: Fast Test
 
-on:
-  push:
-    branches-ignore:
-      - develop
-      - master
-  pull_request:
-    branches-ignore:
-      - develop
-      - master
+on: [push, pull_request]
+  branches-ignore:
+    - develop
+    - master
 
 jobs:
 
