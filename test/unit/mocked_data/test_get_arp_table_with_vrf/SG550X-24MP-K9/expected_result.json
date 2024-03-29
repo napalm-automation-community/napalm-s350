@@ -37,7 +37,7 @@
   },
   { 
     "age" : 0.0,
-    "interface" : "vlan 1",
+    "interface" : "VLAN1",
     "ip" : "192.168.0.4",
     "mac" : "AB:50:EF:12:34:56"
   },
@@ -55,7 +55,7 @@
   },
   { 
     "age" : 0.0,
-    "interface" : "vlan 1",
+    "interface" : "VLAN1",
     "ip" : "192.168.0.142",
     "mac" : "AB:50:EF:12:34:56"
   }

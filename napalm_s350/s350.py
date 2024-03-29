@@ -52,7 +52,7 @@ from typing import List
 class S350Driver(NetworkDriver):
     """Napalm driver for S350."""
 
-    def __init__(self, hostname, username, password, timeout=30, optional_args=None):
+    def __init__(self, hostname, username, password, timeout=60, optional_args=None):
         """Constructor."""
         self.device = None
         self.hostname = hostname
