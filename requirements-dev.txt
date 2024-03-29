@@ -1,12 +1,16 @@
-black==20.8b1
-coveralls==2.1.2
-ddt==1.4.1
-flake8-import-order==0.18.1
-pytest==5.4.3
-pytest-cov==2.10.1
-pytest-json==0.4.0
-pytest-pythonpath==0.7.3
-pylama==7.7.1
-mock==4.0.2
-tox==3.20.1
-demjson
+napalm<=4.0.0
+netmiko<=4.0.0
+black<=24.3.0 # CVE-2024-21503
+coveralls
+ddt
+flake8-import-order
+# pytest==6.2.5
+pytest
+pytest-cov
+pytest-json
+pytest-pythonpath
+pylama
+# pyflakes==2.4.0 #prevent problems
+pyflakes
+mock
+tox
