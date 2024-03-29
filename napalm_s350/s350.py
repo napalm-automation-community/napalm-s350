@@ -112,7 +112,7 @@ class S350Driver(NetworkDriver):
                     if "% Invalid" not in output:
                         break
             else:
-                output = self.device.send_command(command, self.timeout)
+                output = self.device.send_command(command)
             return output.strip()
         except (socket.error, EOFError) as e:
             raise ConnectionClosedException(str(e))
