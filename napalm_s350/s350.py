@@ -52,7 +52,7 @@ from typing import List
 class S350Driver(NetworkDriver):
     """Napalm driver for S350."""
 
-    def __init__(self, hostname, username, password, timeout=60, optional_args=None):
+    def __init__(self, hostname, username, password, timeout=30, optional_args=None):
         """Constructor."""
         self.device = None
         self.hostname = hostname
@@ -112,7 +112,7 @@ class S350Driver(NetworkDriver):
                     if "% Invalid" not in output:
                         break
             else:
-                output = self.device.send_command(command, read_timeout=27.0)
+                output = self.device.send_command(command, self.timeout)
             return output.strip()
         except (socket.error, EOFError) as e:
             raise ConnectionClosedException(str(e))
