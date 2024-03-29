@@ -1,16 +1,14 @@
-napalm<=4.0.0
-netmiko<=4.0.0
-black<=24.3.0 # CVE-2024-21503
+napalm>=4.0.0
+netmiko>=4.0.0
+black>=24.3.0 # CVE-2024-21503
 coveralls
 ddt
 flake8-import-order
-# pytest==6.2.5
 pytest
 pytest-cov
 pytest-json
 pytest-pythonpath
 pylama
-# pyflakes==2.4.0 #prevent problems
 pyflakes
 mock
 tox

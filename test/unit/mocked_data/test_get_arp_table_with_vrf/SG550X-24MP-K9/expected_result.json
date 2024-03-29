@@ -1,61 +1,61 @@
 [ 
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.1",
     "mac" : "AB:00:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.2",
     "mac" : "AB:C7:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.65",
     "mac" : "AB:EA:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.73",
     "mac" : "AB:EA:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.40",
     "mac" : "AB:50:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.44",
     "mac" : "AB:50:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "vlan 1",
+    "interface" : "VLAN1",
     "ip" : "192.168.0.4",
     "mac" : "AB:50:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.49",
     "mac" : "AB:50:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "TengigabitEthernet1/0/4",
+    "interface" : "TenGigabitEthernet1/0/4",
     "ip" : "192.168.0.2",
     "mac" : "AB:50:EF:12:34:56"
   },
   { 
     "age" : 0.0,
-    "interface" : "vlan 1",
+    "interface" : "VLAN1",
     "ip" : "192.168.0.142",
     "mac" : "AB:50:EF:12:34:56"
   }

@@ -1,4 +1,4 @@
 { 
-  "vlan 1" : { "ipv4" : { "198.51.100.2" : { "prefix_length" : 24 } } },
-  "vlan 852" : { "ipv4" : { "198.51.100.1" : { "prefix_length" : 16 } } }
+  "VLAN1" : { "ipv4" : { "198.51.100.2" : { "prefix_length" : 24 } } },
+  "VLAN852" : { "ipv4" : { "198.51.100.1" : { "prefix_length" : 16 } } }
 }
