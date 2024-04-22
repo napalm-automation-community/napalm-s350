@@ -157,7 +157,13 @@ class S350Driver(NetworkDriver):
 
         return arp_table
 
-    def get_config(self, retrieve="all", full=False, sanitized=False):
+    def get_config(
+        self,
+        retrieve="all",
+        full=False,
+        sanitized=False,
+        format: str = "text",
+    ):
         """
         get_config for S350. Since this firmware doesn't support a candidate
         configuration we leave it empty.
