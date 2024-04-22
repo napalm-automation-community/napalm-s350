@@ -3,11 +3,12 @@
 NAPALM driver for Cisco SMB switches (SF3xx, SF5xx, SG3xx, SG5xx, CBS35x).
 
 ## Status
-Master: ![Build](https://github.com/napalm-automation-community/napalm-s350/workflows/Test%20before%20push/badge.svg?branch=master&event=push)
 
-Develop: ![Build](https://github.com/napalm-automation-community/napalm-s350/workflows/Test%20before%20push/badge.svg?branch=develop&event=push)
+Master: [![Thorough Test](https://github.com/napalm-automation-community/napalm-s350/actions/workflows/ThoroughTest.yml/badge.svg?branch=master)](https://github.com/napalm-automation-community/napalm-s350/actions/workflows/ThoroughTest.yml)
 
-PyPi: [![Upload](https://github.com/napalm-automation-community/napalm-s350/workflows/Upload%20Python%20Package%20to%20PyPi.org/badge.svg)](https://github.com/napalm-automation-community/napalm-s350/actions?query=workflow%3A%22Upload+Python+Package+to+PyPi.org%22)
+Develop: [![Thorough Test](https://github.com/napalm-automation-community/napalm-s350/actions/workflows/ThoroughTest.yml/badge.svg?branch=develop)](https://github.com/napalm-automation-community/napalm-s350/actions/workflows/ThoroughTest.yml)
+
+PyPi.org: [![Publish To PyPi.org](https://github.com/napalm-automation-community/napalm-s350/actions/workflows/PublishToPIP.yml/badge.svg?branch=master)](https://github.com/napalm-automation-community/napalm-s350/actions/workflows/PublishToPIP.yml)
 
 ## Requirements
 
