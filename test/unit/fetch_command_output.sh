@@ -155,3 +155,66 @@ do
     echo -e "$(napalm --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" > "$CMDFILE"
 done
 
+echo "#### Preparing obfuscate script"
+echo "## IP addresses"
+IPs=$(cat "$CODIR/$TYPE/"*.txt \
+    | sed -rn 's/.*[^0-9\.](([0-9]{1,3}\.){3}[0-9]{1,3})[^0-9\.].*/\1/gp' \
+    | sort \
+    | uniq
+)
+echo $IPs
+
+for a in $IPs
+do
+    oa=${a}
+    oa=${oa//2/3}
+    oa=${oa//4/3}
+    oa=${oa//5/3}
+    oa=${oa//6/7}
+    oa=${oa//8/7}
+    oa=${oa//9/7}
+
+    oa=" -e s/$a/$oa/g "
+
+    oIPs="$oIPs$oa "
+done
+
+echo "## MAC addresses"
+MACs=$(cat "$CODIR/$TYPE/"*.txt \
+    | sed -rn -e 's/.*[^0-9\.:a-f-](([[:xdigit:]]{2}[:.-]?){5}[[:xdigit:]]{2})[^0-9\.:a-f-].*/\1/gp' \
+    | sort \
+    | uniq 
+)
+echo $MACs
+
+for m in $MACs
+do
+    om=${m}
+    om=${om//1/2}
+    om=${om//3/2}
+    om=${om//6/2}
+    om=${om//8/2}
+    om=${om//b/2}
+    om=${om//e/2}
+    om=${om//4/a}
+    om=${om//5/a}
+    om=${om//7/a}
+    om=${om//9/a}
+    om=${om//c/a}
+    om=${om//d/a}
+
+    om=" -e s/$m/$om/g "
+
+    oMACs="$oMACs$om "
+done
+
+echo "## Obfuscate"
+echo oIPS=$oIPs
+echo oMACs=$oMACs
+sed -ri $oMACs $oIPs "$CODIR/$TYPE/"*.txt
+
+echo "###################################################"
+echo "## Do not forget obfuscate other output:         ##"
+echo "##   passwords, secrets, keys, certificates      ##"
+echo "##   descriptions, names and other ...           ##"
+echo "###################################################"
