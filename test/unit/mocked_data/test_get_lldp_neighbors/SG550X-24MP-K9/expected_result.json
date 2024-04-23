@@ -15,11 +15,11 @@
         "hostname" : "ab:48:ef:12:34:56",
         "port" : "ab:48:ef:12:34:56"
       } ],
-  "TengigabitEthernet1/0/1" : [ { 
+  "TenGigabitEthernet1/0/1" : [ { 
         "hostname" : "switch-c",
         "port" : "gi1/0/1"
       } ],
-  "TengigabitEthernet1/0/4" : [ { 
+  "TenGigabitEthernet1/0/4" : [ { 
         "hostname" : "switch-c.cb.madeta.cz",
         "port" : "Gi1/0/26"
       } ]
