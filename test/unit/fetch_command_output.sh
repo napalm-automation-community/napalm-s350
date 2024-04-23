@@ -10,14 +10,14 @@ DEF_METHOD="_send_command"
 MDDIR="mocked_data"
 # command output dir
 CODIR="command_output"
-# commands.in
-CMDIN="./commands.in"
+# config
+CMDIN="./$(basename $0 .sh ).cfg"
 
 GETOPTS=":hu:p:ft:m:i:l:v:d:"                                                   
 function usage() {                                                           
-    MSG="usage: $(basename $0) [-h] [-u USERNAME] [-p PASSWORD] [-f]\n"
-    MSG+="          [-m METHOD] [-i INTERFACE] [-l LLDP_INTERFACE]\n"
-    MSG+="          -t TYPE -v VENDOR -d DEVICE\n"
+    MSG="usage: $(basename $0) [-h] -u USERNAME -p PASSWORD [-f]\n"
+    MSG+="          [-m METHOD] -i INTERFACE -l LLDP_INTERFACE\n"
+    MSG+="          -t TYPE -v VENDOR -d DEVICE [SINGLE_COMMAND]\n"
     MSG+="\n"
     MSG+="   This utility helps to get output of commands from device.\n"
     MSG+="     Set of commands can be configured in '$CMDIN'\n"
@@ -102,40 +102,25 @@ while getopts $GETOPTS opt; do
     esac
 done
 
+
+# read commands from file
+[ -f "$CMDIN" ] || usage "File '$CMDIN' does not exists."
+[ -r "$CMDIN" ] || usage "Can not read file '$CMDIN'."
+
+[ -z "$INTERFACE" ]     && usage "Parameter -i needed"
+[ -z "$LLDPINTERFACE" ] && usage "Parameter -l needed"
+
+. "${CMDIN}"
+
+# Get possible last arg and set it as only command
+shift $(($OPTIND - 1))
+[ -z "$1" ] || COMMANDS=("$1")
+
 [ -z "$DEVUSERNAME" ]   && usage "Parameter -u needed"
 [ -z "$DEVPASSWORD" ]   && usage "Parameter -p needed"
 [ -z "$TYPE" ]          && usage "Parameter -t needed"
 [ -z "$VENDOR" ]        && usage "Parameter -v needed"
 [ -z "$DEVICE" ]        && usage "Parameter -d needed"
-
-### COMMANDS="
-### show arp
-### show startup-config
-### show version
-### show system
-### show inventory
-### show hosts
-### show interface status
-### show running-config
-### show interfaces status
-### show interfaces description
-### show ports jumbo-frame
-### show ip int
-### show lldp neighbors
-### show sntp status
-### show running-config full
-### show lldp local $LLDPINTERFACE
-### show lldp neighbors $LLDPINTERFACE
-### "
-### COMMANDS="
-### show inventory
-### "
-
-# read 'commands.in' files
-[ -f "$CMDIN" ] || usage "File '$CMDIN' does not exists."
-[ -r "$CMDIN" ] || usage "Can not read file '$CMDIN'."
-
-. "${CMDIN}"
 
 # ensure directory structure exists
 [ -d "$CODIR" ] || usage "Output directory '$CODIR' does not exist."
@@ -144,7 +129,7 @@ done
 mkdir -p "$CODIR/$TYPE" || usage "Can not make directory '$CODIR/$TYPE'"
 [ -w "$CODIR/$TYPE" ] || usage "Output directory '$CODIR/$TYPE' is not writeable."
 
-
+echo "########## Generate output for type $TYPE ##########"
 # lets get commands outputs
 OLDIFS="$IFS"
 IFS=$'\t\n'
@@ -152,20 +137,21 @@ for CMD in ${COMMANDS[@]}
 do
     IFS="$OLDIFS"
 
-    CMDFILE=${CMD// /_}
-    CMDFILE=${CMDFILE//-/_}
-    CMDFILE=${CMDFILE/\\/_}
-    CMDFILE=${CMDFILE/./_}
-    CMDFILE=${CMDFILE////_}
-    CMDFILE="$CODIR/$TYPE/${CMDFILE}.txt"
+    CMDSTR=${CMD// /_}
+    CMDSTR=${CMDSTR//-/_}
+    CMDSTR=${CMDSTR/\\/_}
+    CMDSTR=${CMDSTR/./_}
+    CMDSTR=${CMDSTR////_}
+    CMDFILE="$CODIR/$TYPE/${CMDSTR}.txt"
 
     # skip already fetched command outputs
     if [ -f "$CMDFILE" -a "$FORCE" = "n" ]; then
-        echo "######   Skiping '$CMD' file '$CMDFILE' exists"
+        echo "###### Skiping '$CMD'. File '$CMDFILE' exists"
         continue
     fi
 
-    echo "######   Fetching '$CMD' to '$CMDFILE'"
-    echo -e "$(napalm --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" | tee "$CMDFILE"
+    echo "## Fetching '$CMD' to '$CMDSTR.txt'"
+    # --debug
+    echo -e "$(napalm --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" > "$CMDFILE"
 done
 
