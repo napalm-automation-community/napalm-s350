@@ -100,17 +100,11 @@ class S350Driver(NetworkDriver):
         try:
             if isinstance(command, list):
                 for cmd in command:
-                    output = self.device.send_command(
-                            cmd,
-                            read_timeout=self.timeout
-                            )
+                    output = self.device.send_command(cmd, read_timeout=self.timeout)
                     if "% Invalid" not in output:
                         break
             else:
-                output = self.device.send_command(
-                        command,
-                        read_timeout=self.timeout
-                        )
+                output = self.device.send_command(command, read_timeout=self.timeout)
             return output.strip()
         except (socket.error, EOFError) as e:
             raise ConnectionClosedException(str(e))
