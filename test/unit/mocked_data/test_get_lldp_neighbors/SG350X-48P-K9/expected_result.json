@@ -7,15 +7,15 @@
         "hostname" : "",
         "port" : "34:e6:aa:ff:53:a8"
       } ],
-  "TengigabitEthernet1/0/1" : [ { 
+  "TenGigabitEthernet1/0/1" : [ { 
         "hostname" : "swzdsadas-vedc",
         "port" : "Gi0/23"
       } ],
-  "TengigabitEthernet1/0/3" : [ { 
+  "TenGigabitEthernet1/0/3" : [ { 
         "hostname" : "sw1dsafdsfsdfsdd",
         "port" : "gi28"
       } ],
-  "TengigabitEthernet1/0/4" : [ { 
+  "TenGigabitEthernet1/0/4" : [ { 
         "hostname" : "sw2dsdfssddfd",
         "port" : "te1/0/4"
       } ]
