@@ -3,7 +3,7 @@
 
 name: Fast Test
 
-on: [push, pull_request]
+on: [push]
   branches-ignore:
     - develop
     - master
