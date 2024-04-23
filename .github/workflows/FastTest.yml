@@ -3,10 +3,11 @@
 
 name: Fast Test
 
-on: [push]
-  branches-ignore:
-    - develop
-    - master
+on:
+  push: 
+    branches-ignore:
+      - develop
+      - master
 
 jobs:
 
