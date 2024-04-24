@@ -1,0 +1,2 @@
+NAME: "1"   DESCR: "SG250-10P 10-Port Gigabit PoE Smart Switch"   
+PID: SG250-10P-K9   VID: V04   SN: ABC12234XYZ

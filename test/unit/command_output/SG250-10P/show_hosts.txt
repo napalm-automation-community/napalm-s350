@@ -1,0 +1,38 @@
+Name/address lookup is enabled
+Domain Timeout: 2 seconds
+Domain Retry: 1 times
+Domain Polling Interval: 8 seconds
+
+
+Default Domain Table
+
+                   Domain                    Source  Interface Preference 
+-------------------------------------------- ------- --------- ---------- 
+Domain name is not configured
+
+
+Name Server Table
+
+                 IP Address                  Source  Interface Preference 
+-------------------------------------------- ------- --------- ---------- 
+30.70.3.33                                   static            1          
+
+
+Cache Table
+Flags: (STA/DYN, OK/NE/??)
+STA - Static, DYN - Dynamic
+OK - Okay, NE - Negative Cache, ?? - No Response
+
+                                                               Remaining
+          Host                   Addresses         Type State     TTL     
+------------------------- ------------------------ ---- ------ ---------- 
+tftp                      30.70.3.33               IPv4 STA,OK            
+ntp.examples.com          30.70.3.33               IPv4 DYN,OK 0003:38:43 
+ntp.examples.com          no resolution            IPv6 DYN,??            
+ntp.ph.examp.com          30.30.3.33               IPv4 DYN,OK 0003:38:43 
+ntp.ph.examp.com          no resolution            IPv6 DYN,??            
+pnpserver.qqq.aa          no resolution            IPv6 DYN,NE 0020:55:13 
+pnpserver.qqq.aa          no resolution            IPv4 DYN,NE 0020:55:13 
+pingu.examples.com        30.70.3.33               IPv4 DYN,OK 0003:38:43 
+ns-cb-1.examples.com      30.70.3.300              IPv4 DYN,OK 0003:38:43 
+ns-cb-2.examples.com      30.70.3.300              IPv4 DYN,OK 0003:38:43

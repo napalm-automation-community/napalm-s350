@@ -1,0 +1,10 @@
+Total number of entries: 5
+
+
+  VLAN    Interface     IP address        HW address          status      
+--------------------- --------------- ------------------- --------------- 
+vlan 1     gi10       30.70.0.3       00:00:0a:0a:aa:02   dynamic         
+vlan 1     gi10       30.70.0.3       a0:02:aa:aa:fa:aa   dynamic         
+vlan 1     gi10       30.70.0.3       a0:02:aa:aa:fa:aa   dynamic         
+vlan 1     gi10       30.70.3.33      00:a0:a2:a2:2f:a2   dynamic         
+vlan 1     gi10       30.70.33.3      aa:a2:a2:aa:fa:2a   dynamic

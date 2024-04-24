@@ -1,0 +1,23 @@
+Gathering information...
+
+Name: gi1
+Switchport: enable
+Administrative Mode: access
+Operational Mode: up
+Access Mode VLAN: 1
+Trunking Native Mode VLAN: 1
+Trunking VLANs: 1,7-8,10-11,30-31,100,200,480,490-491,1000-1001
+                        2-6,9,12-29,32-99,101-199,201-479,481-489,492-999,
+                        1002-4094 (Inactive)
+General PVID: 1
+General VLANs: none
+General Egress Tagged VLANs: none
+General Forbidden VLANs: none
+General Ingress Filtering: enabled
+General Acceptable Frame Type: all
+General GVRP status: disabled
+Customer Mode VLAN: none
+
+
+
+Classification rules:
