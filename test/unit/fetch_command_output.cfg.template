@@ -46,23 +46,21 @@ COMMANDS+=("show lldp neighbors $LLDPINTERFACE")
 # ntp commands
 COMMANDS+=("show sntp status")
 
-# !!! keeep replacement the same lenght
+# Additional obfuscations
+#   format is "SOURCE&&&REPLACEMENT"
+#   !!! keep source and replacement the same lenght
 OBFUSCATE=()
 # keys and secrets
 OBFUSCATE+=("[a-f0-9]{40}&&&0123456789abcdef0123456789abcdef01234567")
 OBFUSCATE+=("[a-zA-Z0-9+/]{30}&&&ABCD1234abcdABCD1234abcdABCD12")
 # domains 
-OBFUSCATE+=("sw-cb-vratnice-&&&switch-no-2548-")
-OBFUSCATE+=("sw-cb-&&&switch")
-OBFUSCATE+=("cb.madeta.cz&&&examples.com")
-OBFUSCATE+=("madeta.cz&&&examp.com")
+OBFUSCATE+=("somedoma.org&&&examples.com")
+OBFUSCATE+=("domai.org&&&examp.com")
 # names and acronims
-OBFUSCATE+=("CZ;Ceske Budejovice;Rudolfovska 83;vr&&&Something;Somewhere;Somestreet;others")
-OBFUSCATE+=("MDT&&&ABC")
-OBFUSCATE+=("Madeta&&&Abcdef")
-OBFUSCATE+=("NECOSS&&&Abcdef")
-OBFUSCATE+=("Atlantis&&&Abcdefgh")
-OBFUSCATE+=("PSZ21221ECM&&&ABC12234XYZ")
+OBFUSCATE+=("SECRET&&&someth")
+OBFUSCATE+=("IBM&&&ABC")
+OBFUSCATE+=("Microsoft&&&Abcdefgh")
+OBFUSCATE+=("PS222221ECM&&&ABC12234XYZ")
 # specific repairs for example: 
 # - versions confused with IPs
 OBFUSCATE+=("3.3.3.73&&&2.4.5.71")

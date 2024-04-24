@@ -152,15 +152,13 @@ do
 
     echo "## Fetching '$CMD' to '$CMDSTR.txt'"
     # --debug
-    set -x 
-    echo -e "$(napalm --debug --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" > "$CMDFILE"
-    set +x
+    echo -e "$(napalm --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" > "$CMDFILE"
 done
 
 echo "#### Preparing obfuscate script"
 echo "## IP addresses"
 IPs=$(cat "$CODIR/$TYPE/"*.txt \
-    | sed -rn 's/.*[^0-9\.](([0-9]{1,3}\.){3}[0-9]{1,3})[^0-9\.].*/\1/gp' \
+    | sed -rn 's/.*[^0-9\.](([0-9]{1,3}\.){3}[0-9]{1,3})[^0-9\.]*.*/\1/gp' \
     | sort \
     | uniq
 )
@@ -184,7 +182,7 @@ done
 
 echo "## MAC addresses"
 MACs=$(cat "$CODIR/$TYPE/"*.txt \
-    | sed -rn -e 's/.*[^0-9\.:a-f-](([[:xdigit:]]{2}[:.-]?){5}[[:xdigit:]]{2})[^0-9\.:a-f-].*/\1/gp' \
+    | sed -rn -e 's/.*[^0-9\.:a-f-](([[:xdigit:]]{2}[:.-]?){5}[[:xdigit:]]{2})[^0-9\.:a-f-]*.*/\1/gp' \
     | sort \
     | uniq 
 )
@@ -215,7 +213,7 @@ echo "## Obfuscate IPs and MACs"
 echo oIPS=$oIPs
 echo oMACs=$oMACs
 set -x 
-sed -r -iOBF $oMACs $oIPs "$CODIR/$TYPE/"*.txt
+sed -r -i $oMACs $oIPs "$CODIR/$TYPE/"*.txt
 set +x
 
 echo "## Obfuscate strings from OBFUSCATE config variable"
@@ -228,9 +226,7 @@ do
 done
 
 echo $oSTR
-sed -r -iSTR -e "$oSTR" "$CODIR/$TYPE/"*.txt
-
-
+sed -r -i -e "$oSTR" "$CODIR/$TYPE/"*.txt
 
 echo "###################################################"
 echo "## Do not forget obfuscate other output:         ##"
