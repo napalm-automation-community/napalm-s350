@@ -152,7 +152,9 @@ do
 
     echo "## Fetching '$CMD' to '$CMDSTR.txt'"
     # --debug
-    echo -e "$(napalm --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" > "$CMDFILE"
+    set -x 
+    echo -e "$(napalm --debug --user "$DEVUSERNAME" --password "$DEVPASSWORD" --vendor "$VENDOR" "$DEVICE" call --method-kwargs "command='$CMD'" "$METHOD" | sed 's/^"//;s/"$//;s/\\"/"/g')" > "$CMDFILE"
+    set +x
 done
 
 echo "#### Preparing obfuscate script"
@@ -167,6 +169,7 @@ echo $IPs
 for a in $IPs
 do
     oa=${a}
+    oa=${oa//1/3}
     oa=${oa//2/3}
     oa=${oa//4/3}
     oa=${oa//5/3}
@@ -208,10 +211,26 @@ do
     oMACs="$oMACs$om "
 done
 
-echo "## Obfuscate"
+echo "## Obfuscate IPs and MACs"
 echo oIPS=$oIPs
 echo oMACs=$oMACs
-sed -ri $oMACs $oIPs "$CODIR/$TYPE/"*.txt
+set -x 
+sed -r -iOBF $oMACs $oIPs "$CODIR/$TYPE/"*.txt
+set +x
+
+echo "## Obfuscate strings from OBFUSCATE config variable"
+
+for s in "${OBFUSCATE[@]}"
+do
+    f="${s%%&&&*}"
+    t="${s##*&&&}"
+    oSTR="${oSTR}s/$f/$t/g;"
+done
+
+echo $oSTR
+sed -r -iSTR -e "$oSTR" "$CODIR/$TYPE/"*.txt
+
+
 
 echo "###################################################"
 echo "## Do not forget obfuscate other output:         ##"
