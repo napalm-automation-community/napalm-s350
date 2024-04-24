@@ -1,0 +1,19 @@
+Port      Description
+-------   -----------
+gi1       
+gi2       
+gi3       
+gi4       
+gi5       
+gi6       
+gi7       
+gi8       
+gi9       
+gi10      Trunk to switchkuch-1
+
+Ch        Description
+-------   -----------
+Po1       
+Po2       
+Po3       
+Po4

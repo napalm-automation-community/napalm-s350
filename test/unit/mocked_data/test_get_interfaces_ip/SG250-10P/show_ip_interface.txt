@@ -1,0 +1,4 @@
+IP Address        I/F    I/F Status  Type   Directed  Prec Redirect Status 
+                             admin/oper         Broadcast                      
+------------------ --------- ---------- ------- --------- ---- -------- ------ 
+30.70.0.37/17      vlan 1    UP/UP      Static  disable   No   enable   Valid

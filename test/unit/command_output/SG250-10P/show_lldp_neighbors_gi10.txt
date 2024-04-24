@@ -1,0 +1,22 @@
+Device ID: 00:2a:aa:a2:2a:20
+Port ID: Fa0/22
+Capabilities: Bridge
+System Name: switchkuch-1
+System description: Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE11, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyrigh
+Port description: FastEthernet0/22
+Management Address: 30.70.0.33
+Time To Live: 91
+
+
+802.3 MAC/PHY Configuration/Status
+Auto-negotiation support: Supported
+Auto-negotiation status: Enabled
+Auto-negotiation Advertised Capabilities: 100BASE-TX full duplex mode, 100BASE-TX half duplex mode, 10BASE-T  full duplex mode, 10BASE-T  half duplex mode
+Operational MAU type: 100BaseTXFD
+
+802.1 PVID: 1
+802.1 PPVID: 
+802.1 VLAN:
+802.1 Protocol:

@@ -1,0 +1,136 @@
+config-file-header
+switch-no-2548-1
+v2.4.5.71 / RTESLA2.4.5_930_181_144
+CLI v1.0
+file SSD indicator encrypted
+@
+ssd-control-start
+ssd config
+ssd file passphrase control unrestricted
+no ssd file integrity control
+ssd-control-end ABCD1234abcdABCD1234abcdABCD12c0
+!
+!
+unit-type-control-start
+unit-type unit 1 network gi uplink none
+unit-type-control-end
+!
+cdp device-id format hostname
+spanning-tree mode mst
+spanning-tree loopback-guard
+port jumbo-frame
+vlan database
+vlan 7-8,10-11,30-31,100,200,480,490-491,1000-1001
+exit
+voice vlan id 7
+voice vlan state disabled
+voice vlan oui-table add 0001e3 Siemens_AG_phone________
+voice vlan oui-table add 00036b Cisco_phone_____________
+voice vlan oui-table add 00096e Avaya___________________
+voice vlan oui-table add 000fe2 H3C_Aolynk______________
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone___________
+voice vlan oui-table add 00e075 Polycom/Veritel_phone___
+voice vlan oui-table add 00e0bb 3Com_phone______________
+no eee enable
+link-flap prevention disable
+bonjour interface range vlan 1
+hostname switch-no-2548-1
+logging host 30.70.3.33
+logging host 30.73.3.30 port 50001
+logging buffered notifications
+logging origin-id hostname
+logging console errors
+no passwords complexity enable
+passwords aging 0
+username admin password encrypted ABCD1234abcdABCD1234abcdABCD122f0222aa2a privilege 15
+username cisco password encrypted ABCD1234abcdABCD1234abcdABCD122f0222aa2a privilege 15
+ip ssh server
+ip ssh password-auth
+ip ssh pubkey-auth auto-login
+crypto key pubkey-chain ssh
+user-key admin rsa
+key-string row ABCD1234abcdABCD1234abcdABCD12Mdfpc6NU0L
+key-string row ABCD1234abcdABCD1234abcdABCD12IK2g3BQGlB
+key-string row ABCD1234abcdABCD1234abcdABCD12RQDtU8sgav
+key-string row ABCD1234abcdABCD1234abcdABCD12dS
+key-string row ABCD1234abcdABCD1234abcdABCD12clVSXW+VS9
+key-string row ABCD1234abcdABCD1234abcdABCD121yWQ/dirg7
+key-string row ABCD1234abcdABCD1234abcdABCD126+oTfMZRDF
+key-string row ABCD1234abcdABCD1234abcdABCD121OnMyls0Cv
+key-string row ABCD1234abcdABCD1234abcdABCD12xIINJVB3mV
+key-string row SWtO0EiL2pTczbwxGw==
+exit
+exit
+snmp-server server
+snmp-server location "Something;Somewhere;Somestreet;othersatnice;0;vratnice"
+snmp-server community Abcdef rw view DefaultSuper
+clock timezone CET +1
+clock summer-time CEST recurring last sun mar 02:00 last sun oct 03:00
+sntp server 30.30.3.33 poll
+sntp server 30.70.3.33 poll
+sntp server ntp.examples.com poll
+sntp server ntp.ph.examp.com poll
+no sntp server time-a.timefreq.bldrdoc.gov
+no sntp server time-b.timefreq.bldrdoc.gov
+no sntp server time-c.timefreq.bldrdoc.gov
+ip name-server  30.70.3.33
+ip host tftp 30.70.3.33
+!
+interface vlan 1
+ name default
+ ip address 30.70.0.37 333.333.337.0
+ no ip address dhcp
+!
+interface vlan 7
+ name VoIP-Phones
+!
+interface vlan 8
+ name INET_DMZ
+!
+interface vlan 10
+ name AD-Clients
+!
+interface vlan 11
+ name VOIP_VoiceTrunk
+!
+interface vlan 30
+ name Alantis_DMZ
+!
+interface vlan 31
+ name Abcdef_DMZ
+!
+interface vlan 100
+ name RAW_Inet_Abcdef
+!
+interface vlan 200
+ name ABC-ADS
+!
+interface vlan 480
+ name ABC-ITMGMT
+!
+interface vlan 490
+ name HOSTNET
+!
+interface vlan 491
+ name TECHNET
+!
+interface vlan 1000
+ name ABC-IT
+!
+interface vlan 1001
+ name CES-MAR
+!
+interface GigabitEthernet8
+ no eee enable
+ no eee lldp enable
+ power inline priority critical
+!
+interface GigabitEthernet9
+ switchport trunk native vlan none
+!
+interface GigabitEthernet10
+ description "Trunk to switchkuch-1"
+!
+exit
+ip default-gateway 30.70.0.3

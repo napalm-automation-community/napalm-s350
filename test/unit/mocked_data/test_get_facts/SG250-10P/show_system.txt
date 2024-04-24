@@ -1,0 +1,21 @@
+System Description:                       SG250-10P 10-Port Gigabit PoE Smart Switch
+System Up Time (days,hour:min:sec):       123,16:39:27
+System Contact:                           
+System Name:                              switch-no-2548-1
+System Location:                          Something;Somewhere;Somestreet;others
+                                          atnice;0;vratnice
+System MAC Address:                       aa:aa:a0:22:2a:a2
+System Object ID:                         2.2.8.4.4.1.9.6.1.97.10.5
+
+Unit          Type          
+---- ---------------------- 
+ 1         SG250-10P        
+
+
+Unit                Fans Status             
+----   -------------------------------------
+ 1           Fans status is N/A          
+
+Unit Temperature (Celsius)   Status   
+---- --------------------- ---------- 
+ 1            65               OK

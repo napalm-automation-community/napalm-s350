@@ -1,0 +1,43 @@
+Clock is synchronized, stratum 2, reference is 30.70.3.33, unicast
+
+Unicast servers:
+
+Server            : 30.30.3.33
+  Source          : Static
+  Stratum         : 2
+  Status          : up
+  Last Response   : 14:45:42.0 CEST Apr 4 2024
+  Offset          : 1094.3411020 mSec
+  Delay           : 0 mSec
+
+Server            : 30.70.3.33
+  Source          : Static
+  Stratum         : 2
+  Status          : up
+  Last Response   : 14:18:57.0 CEST Apr 24 2024
+  Offset          : 1088.6150517 mSec
+  Delay           : 0 mSec
+
+Server            : ntp.examples.com
+  Source          : Static
+  Stratum         : 255
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+Server            : ntp.ph.examp.com
+  Source          : Static
+  Stratum         : 255
+  Status          : down
+  Last Response   : 00:00:00.0  Jan 1 1900
+  Offset          : 0.0000000 mSec
+  Delay           : 0 mSec
+
+
+
+Anycast server:
+
+
+
+Broadcast:

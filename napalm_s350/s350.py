@@ -100,11 +100,11 @@ class S350Driver(NetworkDriver):
         try:
             if isinstance(command, list):
                 for cmd in command:
-                    output = self.device.send_command(cmd)
+                    output = self.device.send_command(cmd, read_timeout=self.timeout)
                     if "% Invalid" not in output:
                         break
             else:
-                output = self.device.send_command(command)
+                output = self.device.send_command(command, read_timeout=self.timeout)
             return output.strip()
         except (socket.error, EOFError) as e:
             raise ConnectionClosedException(str(e))
@@ -245,13 +245,28 @@ class S350Driver(NetworkDriver):
         uptime = self._parse_uptime(uptime_str)
 
         # serial_number and model
+        # take first device
         inventory = self._get_facts_parse_inventory(show_inv)["1"]
         serial_number = inventory["sn"]
         model = inventory["pid"]
 
         # fqdn
-        domainname = napalm.base.helpers.textfsm_extractor(self, "hosts", show_hosts)[0]
-        domainname = domainname["domain_name"]
+        # take first domain name
+        domainname = "Unknown"
+        atDTh = False
+        atDT = False
+        for line in show_hosts.splitlines():
+            if line.startswith("Default Domain Table"):
+                atDTh = True
+                continue
+            if atDTh and line.startswith("--------"):
+                atDT = True
+                continue
+            if atDT:
+                fields = line.split(" ")
+                domainname = fields[0]
+                break
+
         if domainname == "Domain":
             domainname = "Unknown"
         if domainname != "Unknown" and hostname != "Unknown":
