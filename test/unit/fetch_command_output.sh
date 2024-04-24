@@ -146,7 +146,7 @@ do
 
     # skip already fetched command outputs
     if [ -f "$CMDFILE" -a "$FORCE" = "n" ]; then
-        echo "###### Skiping '$CMD'. File '$CMDFILE' exists"
+	echo "###### Skiping '$CMD'. File '$CMDFILE' exists (force run by -f)"
         continue
     fi
 

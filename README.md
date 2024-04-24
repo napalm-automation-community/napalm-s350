@@ -106,6 +106,22 @@ NS - not supported - devices do not have support for that feature
 
 To be sure we can support new device we use test files.
 
+### Fetch command output tool
+There is tool for getting necessary infromatin form running switch
+```
+cd test/unit
+
+# DEVICE_TYPE as PID: in "show inventory" output
+# INTERFACE an inteface
+# LLDP_INTERFACE inteface for getting LLDP inforation
+./fetch_command_output.sh -u USER -p PASSWORD -t DEVICE_TYPE -v s350 \
+    -d SWITCH_IP_or_FQDN -i INTERFACE -l LLDP_INTERFACE 
+```
+
+Output files from that tool are in "test/unit/command_output/$DEVICE_TYPE"
+
+### By hand
+
 We need text output of those commands, to add new device:
 ```
 show arp
